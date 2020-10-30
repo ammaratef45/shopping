@@ -1,60 +1,30 @@
-package com.smtp;
+package edu.miu.groupx.smtp.emailservice.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
+
+import java.io.IOException;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.IOException;
 
-@SpringBootApplication
-public class Application implements CommandLineRunner {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class EmailService {
 
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
 
-    @Override
-    public void run(String... args) {
 
-        System.out.println("Sending Email...");
 
-        try {
-            //sendEmail();
-            sendEmailWithAttachment();
+//    public void sentEmail(String emailAddress){
+//    }
 
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("Done");
-
-    }
-
-    void sendEmail() {
-
-        SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo("user2.shopping@gmail.com", "user1.shopping@gmail.com");
-
-        msg.setSubject("Confirm email for the order 122111");
-        msg.setText("Confirm email for the order 122111");
-
-        javaMailSender.send(msg);
-
-    }
-
-    void sendEmailWithAttachment() throws MessagingException, IOException {
+    public void sendEmail(String emailAddress) throws MessagingException {
 
         MimeMessage msg = javaMailSender.createMimeMessage();
 
@@ -125,4 +95,5 @@ public class Application implements CommandLineRunner {
         javaMailSender.send(msg);
 
     }
+
 }

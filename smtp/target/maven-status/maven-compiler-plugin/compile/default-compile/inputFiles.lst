@@ -1,1 +1,3 @@
-/Users/nguyenngocvu/workspace/shopping/smtp/src/main/java/com/smtp/Application.java
+/Users/nguyenngocvu/workspace/shopping/smtp/src/main/java/edu/miu/groupx/smtp/emailservice/service/EmailService.java
+/Users/nguyenngocvu/workspace/shopping/smtp/src/main/java/edu/miu/groupx/smtp/emailservice/EmailServiceApplication.java
+/Users/nguyenngocvu/workspace/shopping/smtp/src/main/java/edu/miu/groupx/smtp/emailservice/controller/EmailController.java
