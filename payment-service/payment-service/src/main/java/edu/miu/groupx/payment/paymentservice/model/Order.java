@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 @Data
 public class Order {
     private String orderNumber;
-    private Card card;
+    private String orderDescription;
+    private Card payerCard;
+    private String recipientAccountNumber;
     private BigDecimal amount;
 }

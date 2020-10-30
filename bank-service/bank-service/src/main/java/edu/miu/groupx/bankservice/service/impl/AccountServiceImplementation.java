@@ -5,13 +5,15 @@ import edu.miu.groupx.bankservice.model.AccountEntries;
 import edu.miu.groupx.bankservice.model.Card;
 import edu.miu.groupx.bankservice.model.CheckingAccount;
 import edu.miu.groupx.bankservice.model.TransactionType;
+import edu.miu.groupx.bankservice.model.wrappermodel.BankResponseMessages;
+import edu.miu.groupx.bankservice.model.wrappermodel.OperationMessages;
+import edu.miu.groupx.bankservice.model.wrappermodel.OperationStatus;
 import edu.miu.groupx.bankservice.repository.CheckingAccountRepository;
 import edu.miu.groupx.bankservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -31,6 +33,7 @@ public class AccountServiceImplementation implements AccountService {
     private String cardServiceUrl;
     @Autowired
     private RestTemplate restTemplate;
+    Random random = new Random(System.currentTimeMillis());
 
     @Override
     public CheckingAccount createCheckingAccount(String holderName, String cardType) {
@@ -93,34 +96,65 @@ public class AccountServiceImplementation implements AccountService {
     }
 
     @Override
-    public CheckingAccount deposit(BigDecimal amount, String accountNumber) {
-        CheckingAccount account = this.findAccountByAccountNumber(accountNumber);
-        account.setBalance(account.getBalance().add(amount));
-        AccountEntries accountEntry = new AccountEntries();
-        accountEntry.setTransactionDate(LocalDate.now());
-        accountEntry.setAmount(amount);
-        accountEntry.setSubjectAccountNumber(accountNumber);
-        accountEntry.setTransactionType(TransactionType.DEPOSIT);
-        account.getAccountEntries().add(accountEntry);
-        checkingAccountRepository.save(account);
-        return checkingAccountRepository.save(account);
-    }
+    public BankResponseMessages deposit(BigDecimal amount, String accountNumber) {
+        CheckingAccount account = null;
+        BankResponseMessages responseMessages = new BankResponseMessages();
+        responseMessages.setTransferDate(LocalDate.now());
 
-    @Override
-    public CheckingAccount withdraw(BigDecimal amount, String accountNumber) {
-
-        CheckingAccount account = this.findAccountByAccountNumber(accountNumber);
-        if (this.hasEnoughBalance(amount, accountNumber)) {
-            account.setBalance(account.getBalance().subtract(amount));
+        try {
+            account = this.findAccountByAccountNumber(accountNumber);
+            account.setBalance(account.getBalance().add(amount));
             AccountEntries accountEntry = new AccountEntries();
             accountEntry.setTransactionDate(LocalDate.now());
             accountEntry.setAmount(amount);
             accountEntry.setSubjectAccountNumber(accountNumber);
-            accountEntry.setTransactionType(TransactionType.WITHDRAWAL);
+            accountEntry.setTransactionType(TransactionType.DEPOSIT);
             account.getAccountEntries().add(accountEntry);
             checkingAccountRepository.save(account);
+        } catch (Exception e) {
+
+            responseMessages.setTransferMessage(OperationMessages.DEPOSIT_UNSUCCESSFUL.getOperationMessages());
+            responseMessages.setTransferStatus(OperationStatus.FAILED.getOperationStatusMessages());
+            return responseMessages;
         }
-        return account;
+        responseMessages.setTransferMessage(OperationMessages.DEPOSIT_SUCCESSFUL.getOperationMessages());
+        responseMessages.setTransferStatus(OperationStatus.SUCCESS.getOperationStatusMessages());
+
+        return responseMessages;
+    }
+
+    @Override
+    public BankResponseMessages withdraw(BigDecimal amount, String accountNumber) {
+
+        CheckingAccount account = this.findAccountByAccountNumber(accountNumber);
+        BankResponseMessages responseMessages = new BankResponseMessages();
+        responseMessages.setTransferDate(LocalDate.now());
+        if (this.hasEnoughBalance(amount, accountNumber)) {
+            try {
+                account.setBalance(account.getBalance().subtract(amount));
+                AccountEntries accountEntry = new AccountEntries();
+                accountEntry.setTransactionDate(LocalDate.now());
+                accountEntry.setAmount(amount);
+                accountEntry.setSubjectAccountNumber(accountNumber);
+                accountEntry.setTransactionType(TransactionType.WITHDRAWAL);
+                account.getAccountEntries().add(accountEntry);
+                checkingAccountRepository.save(account);
+
+            } catch (Exception e) {
+                responseMessages.setTransferStatus(OperationMessages.WITHDRAWAL_UNSUCCESSFUL.getOperationMessages());
+                responseMessages.setTransferMessage(OperationStatus.FAILED.getOperationStatusMessages());
+                return responseMessages;
+
+            }
+
+        } else {
+            responseMessages.setTransferStatus(OperationMessages.NOT_ENOUGH_BALANCE.getOperationMessages());
+            responseMessages.setTransferMessage(OperationStatus.FAILED.getOperationStatusMessages());
+            return responseMessages;
+        }
+        responseMessages.setTransferStatus(OperationMessages.WITHDRAWAL_SUCCESSFUL.getOperationMessages());
+        responseMessages.setTransferMessage(OperationStatus.FAILED.getOperationStatusMessages());
+        return responseMessages;
     }
 
     @Override
@@ -131,23 +165,40 @@ public class AccountServiceImplementation implements AccountService {
 
     @Override
     public boolean hasEnoughBalance(BigDecimal amount, String accountNumber) {
-        CheckingAccount account = this.findAccountByAccountNumber(accountNumber);
-        BigDecimal currentBalance = account.getBalance();
-        BigDecimal difference = currentBalance.subtract(amount);
+        BigDecimal currentBalance = null;
+        BigDecimal difference = null;
+        try {
+            CheckingAccount account = this.findAccountByAccountNumber(accountNumber);
+            currentBalance = account.getBalance();
+            difference = currentBalance.subtract(amount);
+
+        } catch (Exception e) {
+            System.out.println("Can not find account..............");
+        }
         return (difference.compareTo(BigDecimal.ZERO) != -1);
     }
 
 
-    private Boolean transferFund(String sourceAccountNumber, String destinationAccountNumber, BigDecimal amount) {
+    private BankResponseMessages transferFund(String sourceAccountNumber, String destinationAccountNumber, BigDecimal amount) {
         Boolean transferStatus = false;
+        BankResponseMessages bankResponseMessages = new BankResponseMessages();
+        LocalDate transactionDate = LocalDate.now();
+        bankResponseMessages.setTransferDate(transactionDate);
+
         if (hasEnoughBalance(amount, sourceAccountNumber)) {
-//            withdraw(amount, sourceAccountNumber);
-//            deposit(amount, destinationAccountNumber);
+            CheckingAccount destinationAccount = null;
+            try {
+                destinationAccount = this.findAccountByAccountNumber(destinationAccountNumber);
+                destinationAccount.setBalance(destinationAccount.getBalance().add(amount));
+
+            } catch (Exception e) {
+                bankResponseMessages.setTransferMessage(OperationMessages.CANNOT_VERIFY_RECIPIENT_ACCOUNT.getOperationMessages());
+                bankResponseMessages.setTransferStatus(OperationStatus.FAILED.getOperationStatusMessages());
+                return bankResponseMessages;
+            }
             CheckingAccount sourceAccount = this.findAccountByAccountNumber(sourceAccountNumber);
             sourceAccount.setBalance(sourceAccount.getBalance().subtract(amount));
-            CheckingAccount destinationAccount = this.findAccountByAccountNumber(destinationAccountNumber);
-            destinationAccount.setBalance(destinationAccount.getBalance().add(amount));
-            LocalDate transactionDate = LocalDate.now();
+
 
             AccountEntries sourceEntry = new AccountEntries();
             sourceEntry.setTransactionDate(transactionDate);
@@ -164,23 +215,40 @@ public class AccountServiceImplementation implements AccountService {
             destinationEntry.setTransactionType(TransactionType.DEPOSIT);
             destinationAccount.getAccountEntries().add(destinationEntry);
             checkingAccountRepository.save(destinationAccount);
-            transferStatus = true;
+            bankResponseMessages.setTransferMessage(OperationMessages.PAYMENT_COMPLETED_SUCCESSFULLY.getOperationMessages());
+            bankResponseMessages.setTransferStatus(OperationStatus.SUCCESS.getOperationStatusMessages());
 
         }
-        return transferStatus;
+        return bankResponseMessages;
     }
 
     @Override
-    public Boolean makePayment(String sourceAccount, String destinationAccount, BigDecimal amount) {
+    public BankResponseMessages makePayment(String sourceAccount, String destinationAccount, BigDecimal amount) {
         return this.transferFund(sourceAccount, destinationAccount, amount);
+    }
+
+    @Override
+    public String findCheckingAccountByCardNumberAndCCV(Card card) {
+        CheckingAccount payerAccount = checkingAccountRepository.findCheckingAccountByCardNumberAndCCV(card.getCardNumber(), card.getCCV());
+
+        return payerAccount.getAccountNumber();
     }
 
     /**
      * Account Utility methods
      */
-    public String generateAccountNumber() {
-        Random random = new Random(System.currentTimeMillis());
+    private String generateAccountNumber() {
+
         StringBuilder stringBuilder = new StringBuilder("2");
+        for (int i = 0; i < 9; i++) {
+            int rand = random.nextInt(10);
+            stringBuilder.append(rand);
+        }
+        return stringBuilder.toString();
+    }
+
+    private String generateTransactionNumber() {
+        StringBuilder stringBuilder = new StringBuilder("TR");
         for (int i = 0; i < 9; i++) {
             int rand = random.nextInt(10);
             stringBuilder.append(rand);
@@ -190,3 +258,4 @@ public class AccountServiceImplementation implements AccountService {
 
 
 }
+  

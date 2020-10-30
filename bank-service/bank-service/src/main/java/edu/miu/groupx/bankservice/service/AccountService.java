@@ -3,6 +3,7 @@ package edu.miu.groupx.bankservice.service;
 import edu.miu.groupx.bankservice.model.Card;
 import edu.miu.groupx.bankservice.model.CheckingAccount;
 import edu.miu.groupx.bankservice.model.Customer;
+import edu.miu.groupx.bankservice.model.wrappermodel.BankResponseMessages;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -21,13 +22,15 @@ public interface AccountService {
 
     public List<CheckingAccount> getAllCheckingAccount();
 
-    public CheckingAccount deposit(BigDecimal amount, String accountNumber);
+    public BankResponseMessages deposit(BigDecimal amount, String accountNumber);
 
-    public CheckingAccount withdraw(BigDecimal amount, String accountNumber);
+    public BankResponseMessages withdraw(BigDecimal amount, String accountNumber);
 
     public CheckingAccount findAccountByAccountNumber(String accountNumber);
 
     public boolean hasEnoughBalance(BigDecimal amount, String accountNumber);
 
-    public Boolean makePayment(String sourceAccount, String destinationAccount, BigDecimal amount);
+    public BankResponseMessages makePayment(String sourceAccount, String destinationAccount, BigDecimal amount);
+
+    public String findCheckingAccountByCardNumberAndCCV(Card card);
 }

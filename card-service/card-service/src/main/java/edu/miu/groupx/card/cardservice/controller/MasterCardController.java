@@ -1,6 +1,8 @@
 package edu.miu.groupx.card.cardservice.controller;
 
+import edu.miu.groupx.card.cardservice.model.CardStatus;
 import edu.miu.groupx.card.cardservice.model.MasterCard;
+import edu.miu.groupx.card.cardservice.model.wrappermodel.CardWrapper;
 import edu.miu.groupx.card.cardservice.service.MasterCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,15 +37,21 @@ public class MasterCardController {
         return new ResponseEntity<MasterCard>(this.masterCardService.createNewCardForCustomer(holderName), HttpStatus.CREATED);
     }
 
-//    @PutMapping("/")
+    //    @PutMapping("/")
 //    public ResponseEntity<MasterCard> updateMasterCard(@RequestBody MasterCard card) {
 //        return new ResponseEntity<MasterCard>(this.masterCardService.(card), HttpStatus.CREATED);
 //    }
     @PostMapping("verify")
-    public ResponseEntity<String> getMasterCardStatus(@RequestBody MasterCard card){
-        String holderName = card.getHolderName();
+    public ResponseEntity<String> getMasterCardStatus(@RequestBody CardWrapper card) {
+        String holderName = card.getCardNumber();
         String CCV = card.getCCV();
-        return new ResponseEntity<String>(masterCardService.getMasterCardStatus(holderName, CCV), HttpStatus.CREATED);
+        String cardStatus = "";
+        try {
+            cardStatus = masterCardService.getMasterCardStatus(holderName, CCV);
+        } catch (Exception e) {
+            return new ResponseEntity<>(CardStatus.INVALID.getCardStatus(), HttpStatus.CREATED);
+        }
+        return new ResponseEntity<String>(cardStatus, HttpStatus.CREATED);
     }
 
 }

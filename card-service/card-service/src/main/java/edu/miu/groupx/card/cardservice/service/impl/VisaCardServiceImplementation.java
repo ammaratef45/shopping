@@ -3,7 +3,6 @@ package edu.miu.groupx.card.cardservice.service.impl;
 import edu.miu.groupx.card.cardservice.exception.CardException;
 import edu.miu.groupx.card.cardservice.model.CardStatus;
 import edu.miu.groupx.card.cardservice.model.CardType;
-import edu.miu.groupx.card.cardservice.model.MasterCard;
 import edu.miu.groupx.card.cardservice.model.VisaCard;
 import edu.miu.groupx.card.cardservice.repository.VisaCardRepository;
 import edu.miu.groupx.card.cardservice.service.CardUtilService;
@@ -58,7 +57,7 @@ public class VisaCardServiceImplementation implements VisaCardService {
 
     @Override
     public String getVisaCardStatus(String cardNumber, String CCV) {
-        VisaCard card = visaCardRepository.findMasterCardByCardNumberAndCCV(cardNumber, CCV);
+        VisaCard card = visaCardRepository.findVisaCardByCardNumberAndCCV(cardNumber, CCV);
         String STATUS = "INVALID";
         return STATUS;
 

@@ -10,5 +10,7 @@ public interface CheckingAccountRepository extends JpaRepository<CheckingAccount
 //
 //    @Query(value ="FROM CheckingAccount acc where acc.accountNumber =?1")
     public CheckingAccount findCheckingAccountByAccountNumber(String accountNumber);
+    @Query(value ="SELECT acc FROM CheckingAccount acc where acc.card.cardNumber = ?1 and acc.card.CCV = ?2")
+    public CheckingAccount findCheckingAccountByCardNumberAndCCV(String payerCardNumber, String payerCardCCV);
 
 }

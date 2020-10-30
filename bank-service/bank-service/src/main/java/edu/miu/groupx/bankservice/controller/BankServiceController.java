@@ -3,8 +3,7 @@ package edu.miu.groupx.bankservice.controller;
 
 import edu.miu.groupx.bankservice.model.CheckingAccount;
 import edu.miu.groupx.bankservice.model.Customer;
-import edu.miu.groupx.bankservice.model.wrappermodel.Payment;
-import edu.miu.groupx.bankservice.model.wrappermodel.User;
+import edu.miu.groupx.bankservice.model.wrappermodel.*;
 import edu.miu.groupx.bankservice.service.AccountService;
 import edu.miu.groupx.bankservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -55,23 +55,37 @@ public class BankServiceController {
      * ********************************ACCOUNT RELATED APIS******************************************
      */
     @PostMapping("/make-payment")
-    public ResponseEntity<Boolean> makePayment(@RequestBody Payment payment) {
-        return new ResponseEntity<Boolean>(accountService.makePayment(
-                payment.getSourceAccountNumber(),
-                payment.getDestinationAccountNumber(),
-                payment.getAmount()), HttpStatus.CREATED
-        );
+    public ResponseEntity<BankResponseMessages> makePayment(@RequestBody Order order) {
+        System.out.println("got called from the payment service.......");
+        Payment newPayment = new Payment();
+        String sourceAccountNumber = null;
+        try {
+            sourceAccountNumber = accountService.findCheckingAccountByCardNumberAndCCV(order.getPayerCard());
+
+        } catch (Exception e) {
+            BankResponseMessages response = new BankResponseMessages();
+            response.setTransferStatus(OperationStatus.FAILED.getOperationStatusMessages());
+            response.setTransferMessage(OperationMessages.CANNOT_VERIFY_PAYER_ACCOUNT.getOperationMessages());
+            response.setTransferDate(LocalDate.now());
+            return new ResponseEntity<>(response, HttpStatus.EXPECTATION_FAILED);
+        }
+
+        String destinationAccountNumber = order.getRecipientAccountNumber();
+        BigDecimal amount = order.getAmount();
+
+
+        return new ResponseEntity<BankResponseMessages>(accountService.makePayment(sourceAccountNumber, destinationAccountNumber, amount), HttpStatus.CREATED);
     }
 
     @PostMapping("/deposit/{amount}")
-    public ResponseEntity<CheckingAccount> deposit(@RequestBody String accountNumber, @PathVariable BigDecimal amount) {
+    public ResponseEntity<BankResponseMessages> deposit(@RequestBody String accountNumber, @PathVariable BigDecimal amount) {
 
-        return new ResponseEntity<CheckingAccount>(accountService.deposit(amount, accountNumber), HttpStatus.CREATED);
+        return new ResponseEntity<BankResponseMessages>(accountService.deposit(amount, accountNumber), HttpStatus.CREATED);
 
     }
 
     @PostMapping("/withdraw/{amount}")
-    public ResponseEntity<CheckingAccount> withdraw(@RequestBody String accountNumber, @PathVariable BigDecimal amount) {
+    public ResponseEntity<BankResponseMessages> withdraw(@RequestBody String accountNumber, @PathVariable BigDecimal amount) {
         return new ResponseEntity<>(accountService.withdraw(amount, accountNumber), HttpStatus.CREATED);
     }
 }

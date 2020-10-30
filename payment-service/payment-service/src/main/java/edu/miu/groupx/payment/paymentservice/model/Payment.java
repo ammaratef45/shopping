@@ -1,5 +1,6 @@
 package edu.miu.groupx.payment.paymentservice.model;
 
+import edu.miu.groupx.payment.paymentservice.model.enums.PaymentStatus;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,13 +12,13 @@ import java.time.LocalDate;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-    String paymentNumber;
-    String customerName;
-    String orderNumber;
-    String cardInformation;
-    LocalDate paymentDate;
-    BigDecimal amount;
-    PaymentStatus status;
+    private Long id;
+    private String transactionId;
+    private String orderNumber;
+    private String payingCardNumber;
+    private LocalDate paymentDate;
+    private BigDecimal amount;
+    private String recipientAccountNumber ;
+    private String status;
 
 }

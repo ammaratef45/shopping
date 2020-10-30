@@ -59,9 +59,9 @@ public class MasterCardServiceImplementation implements MasterCardService {
 
     @Override
     public String getMasterCardStatus(String cardNumber, String CCV) {
+        System.out.println("Card number is: "+cardNumber+", CCV is "+CCV);
         MasterCard card = masterCardRepository.findMasterCardByCardNumberAndCCV(cardNumber, CCV);
-        String STATUS = "INVALID";
-        return STATUS;
+        return card.getStatus().getCardStatus();
     }
 
 

@@ -2,7 +2,7 @@ package edu.miu.groupx.payment.paymentservice.controller;
 
 import edu.miu.groupx.payment.paymentservice.model.Order;
 import edu.miu.groupx.payment.paymentservice.model.Payment;
-import edu.miu.groupx.payment.paymentservice.model.Receipt;
+import edu.miu.groupx.payment.paymentservice.model.Transaction;
 import edu.miu.groupx.payment.paymentservice.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,8 +38,8 @@ public class PaymentController {
         return new ResponseEntity<Payment>(paymentService.updatePayment(payment), HttpStatus.CREATED);
     }
 
-    @PostMapping("/")
-    public ResponseEntity<Receipt> createPayment(@RequestBody Order order) {
+    @PostMapping("/{amount}")
+    public ResponseEntity<Transaction> createPayment(@RequestBody Order order) {
         return new ResponseEntity<>(paymentService.chargeOrder(order), HttpStatus.CREATED);
     }
 
