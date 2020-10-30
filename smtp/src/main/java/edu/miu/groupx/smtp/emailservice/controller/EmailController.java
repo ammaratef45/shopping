@@ -16,15 +16,10 @@ public class EmailController {
     private EmailService emailService;
 
     
-    @GetMapping
-    public void getOrders() throws MessagingException{
-        emailService.sendEmail("nvu135@gmail.com");
-    }
-    
-    @PostMapping("/{email}")
-    public void sentEmail(@PathVariable("email") String email, @RequestBody String template) throws MessagingException{
+    @PostMapping("/{email}/{orderNumber}")
+    public void sentEmail(@PathVariable("email") String email, @PathVariable("orderNumber") String orderNumber, @RequestBody String template) throws MessagingException{
 
-        emailService.sendEmail(email);
+        emailService.sendEmailWithTemplate(email,orderNumber,template);
 
     }
 
