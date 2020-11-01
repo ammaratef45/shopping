@@ -5,9 +5,90 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80f67b34-5d05-4682-94ab-c60a945a8ade" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/../../gateway.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/src/main/java/edu/miu/groupx/shop/gateway/GatewayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/src/main/java/edu/miu/groupx/shop/gateway/ZuulLoggingFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gateway/src/test/java/edu/miu/groupx/shop/gateway/GatewayApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/models/ProductList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/service/SequenceNumberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/models/ProductList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bank-service/bank-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bank-service/bank-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bank-service/bank-service/src/main/java/edu/miu/groupx/bankservice/BankServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bank-service/bank-service/src/main/java/edu/miu/groupx/bankservice/BankServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bank-service/bank-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../bank-service/bank-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/card-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/miu/groupx/card/cardservice/CardApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/miu/groupx/card/cardservice/CardApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/CardApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/CardApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/controller/MasterCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/controller/MasterCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/controller/VisaCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/controller/VisaCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/model/CardStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/model/CardStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/model/MasterCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/model/MasterCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/model/VisaCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/model/VisaCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/repository/MasterCardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/repository/MasterCardRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/repository/VisaCardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/repository/VisaCardRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/service/VisaCardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/service/VisaCardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/service/impl/MasterCardServiceImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/service/impl/MasterCardServiceImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/service/impl/VisaCardServiceImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/miu/groupx/card/cardservice/service/impl/VisaCardServiceImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../netflix-zuul-api-gateway-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../netflix-zuul-api-gateway-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../netflix-zuul-api-gateway-server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../netflix-zuul-api-gateway-server/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../order-service/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../order-service/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/OrderServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/OrderServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../order-service/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../order-service/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/payment-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/payment-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/src/main/java/edu/miu/groupx/payment/paymentservice/PaymentApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/src/main/java/edu/miu/groupx/payment/paymentservice/PaymentApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/PaymentApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/PaymentApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/Address.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/CardStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/Payment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/PaymentStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/model/Receipt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/service/PaymentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/service/impl/PaymentServiceImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../payment-service/payment-service/target/classes/edu/miu/groupx/payment/paymentservice/service/impl/PaymentServiceImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../product-service/product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/ProductApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/ProductApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../product-service/product-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../security-service/security-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../security-service/security-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../security-service/security-service/src/main/java/edu/miu/groupx/security/securityservice/SecurityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../security-service/security-service/src/main/java/edu/miu/groupx/security/securityservice/SecurityApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../security-service/security-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../security-service/security-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/ShoppingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/ShoppingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/config/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/config/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/models/ESequenceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/models/ESequenceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/models/IRepositoryConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/models/IRepositoryConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/models/SequenceNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/models/SequenceNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/repository/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/repository/SequenceNumberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/repository/SequenceNumberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/service/SequenceNumberService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/service/impl/ProductServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../shopping/src/main/java/edu/miu/groupx/shop/shopping/service/impl/SequenceNumberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../product-service/product-service/src/main/java/edu/miu/groupx/product/productservice/service/impl/SequenceNumberServiceImpl.java" afterDir="false" />
+=======
       <change afterPath="$PROJECT_DIR$/../../bank-service/bank-service/src/main/java/edu/miu/groupx/bankservice/model/wrappermodel/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../bank-service/bank-service/src/main/java/edu/miu/groupx/bankservice/controller/BankServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../bank-service/bank-service/src/main/java/edu/miu/groupx/bankservice/controller/BankServiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> b7256c84e7c5252921a21e7df85793946420a9af
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,13 +110,8 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$USER_HOME$/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3" />
+        <option name="mavenHome" value="C:\Users\610710\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
       </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1jDEHwSaP4h9Whs3t6sEURKP2YT" />
@@ -50,9 +126,11 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
@@ -64,19 +142,7 @@
       </method>
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",VISIBILITY_SORTER,SHOW_INTERFACES,SHOW_PROPERTIES" />
   </component>
@@ -122,9 +188,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="0" width="1120" height="1040" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603396796677" />
-    <state x="740" y="222" key="FileChooserDialogImpl" timestamp="1603460764859">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="592" y="176" key="FileChooserDialogImpl" timestamp="1604144238114">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="592" y="176" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1604144238114" />
     <state x="740" y="222" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603460764859" />
     <state width="1860" height="385" key="GridCell.Tab.0.bottom" timestamp="1603486034299">
       <screen x="1920" y="0" width="1920" height="1040" />

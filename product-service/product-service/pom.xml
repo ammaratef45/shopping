@@ -27,6 +27,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Hoxton.SR8</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -98,6 +105,15 @@
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk-s3</artifactId>
 		</dependency>
+<<<<<<< HEAD
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>
+				spring-cloud-starter-netflix-eureka-client
+			</artifactId>
+		</dependency>
+	</dependencies>
+=======
         <dependency>
             <groupId>edu.miu.groupx.report</groupId>
             <artifactId>report-service</artifactId>
@@ -110,6 +126,7 @@
 			<version>2.3.5</version>
 		</dependency>
     </dependencies>
+>>>>>>> b7256c84e7c5252921a21e7df85793946420a9af
 
 	<build>
 		<plugins>

@@ -24,8 +24,20 @@ public class User implements Serializable {
         this.roles = user.getRoles();
     }
 
+    public static User fromSignupBody(SignupBody signupBody) {
+        User user = new User();
+        user.accountNonExpired = true;
+        user.accountNonLocked = true;
+        user.credentialsNonExpired = true;
+        user.enabled = true;
+        user.username = signupBody.getUsername();
+        user.password = signupBody.getPassword();
+        user.email = signupBody.getEmail();
+        return user;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String username;

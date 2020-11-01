@@ -2,7 +2,8 @@ package edu.miu.groupx.product.productservice.controller;
 
 import java.util.List;
 
-import net.bytebuddy.build.Plugin;
+
+import edu.miu.groupx.product.productservice.models.ProductList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -34,11 +35,17 @@ public class ProductController {
 		return productService.save(product);
 	}
 
-	@GetMapping("/products")
-	public List<Product> getProductss() {
-		return productService.getAllProducts();
+	@GetMapping("/productList")
+	public ProductList getProductList() {
+         ProductList productList=new ProductList();
+         productList.setProductList(productService.getAllProducts());
+		return productList;
 	}
 
+	@GetMapping("/products")
+	public List<Product> getProducts() {
+		return productService.getAllProducts();
+	}
 	@GetMapping("/products/{id}")
 	ResponseEntity<?> getProduct(@PathVariable Long id) {
 		
@@ -54,6 +61,13 @@ public class ProductController {
 	public ResponseEntity<?> searchProducts(@RequestParam("keyword") String keyword) {
 		System.out.println(keyword);
 		return new ResponseEntity<List<Product>>(productService.search(keyword), HttpStatus.OK);
+	}
+
+	@GetMapping("/search/productList/any")
+	public ResponseEntity<?> searchProductList(@RequestParam("keyword") String keyword) {
+	    ProductList productList=new ProductList();
+	    productList.setProductList(productService.search(keyword));
+		return new ResponseEntity<ProductList>(productList, HttpStatus.OK);
 	}
 
 	@PutMapping("/products/{id}")

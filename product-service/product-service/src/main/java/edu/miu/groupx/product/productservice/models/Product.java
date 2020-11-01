@@ -1,7 +1,15 @@
 package edu.miu.groupx.product.productservice.models;
 
 import java.io.Serializable;
+<<<<<<< HEAD
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Entity;
+=======
 import java.util.*;
+>>>>>>> b7256c84e7c5252921a21e7df85793946420a9af
 
 import com.fasterxml.jackson.annotation.*;
 import org.springframework.stereotype.Component;
@@ -11,8 +19,11 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 
 import lombok.Data;
+<<<<<<< HEAD
+=======
 
 @Component
+>>>>>>> b7256c84e7c5252921a21e7df85793946420a9af
 @Entity
 @Data
 public class Product implements Serializable {
@@ -27,6 +38,12 @@ public class Product implements Serializable {
 	@NotNull
 	private String description;
 	@NotNull
+<<<<<<< HEAD
+	private BigDecimal Price=BigDecimal.ZERO;
+	@NotNull
+	private String imageUrl;
+	private String productNumber;
+=======
 	private double Price;
 	
 	private String imageUrl;
@@ -36,6 +53,7 @@ public class Product implements Serializable {
 	@JoinColumn(name = "product_id")
 	private List<ProductImages> pictures ;
 
+>>>>>>> b7256c84e7c5252921a21e7df85793946420a9af
 	private Date addedOn;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JsonIgnore
@@ -79,10 +97,10 @@ public class Product implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return Price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(BigDecimal price) {
 		Price = price;
 	}
 	public String getImageUrl() {

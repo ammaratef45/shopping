@@ -2,7 +2,9 @@ package edu.miu.groupx.product.productservice.service.impl;
 
 import java.util.List;
 
+
 import edu.miu.groupx.product.productservice.models.ProductStatus;
+import edu.miu.groupx.product.productservice.service.SequenceNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,12 @@ import edu.miu.groupx.product.productservice.service.ProductService;
 @Service
 @Transactional
 public class ProductServiceImpl implements ProductService {
+	 @Autowired
+	    ProductRepository productRepository;
+	 @Autowired
+	 ProductCatagoryRepository productCatagoryRepository;
+	@Autowired
+	private SequenceNumberService sequenceNumberService;
 
 	@Autowired
 	ProductRepository productRepository;
@@ -31,6 +39,16 @@ public class ProductServiceImpl implements ProductService {
 		// List<ProductImages> productImages=product.getPictures().g
 
 		Product actualProduct = null;
+		Long productCategoryId=product.getProductCatagoryId();
+			if(productCategoryId!=null) {
+			ProductCatagory productCatagory=productCatagoryRepository.findById(productCategoryId).get();
+			//how to set the quantity
+				String productSequence=sequenceNumberService.getNextProductNumber();
+				product.setProductNumber(productSequence);
+			product.setProductCatagory(productCatagory);
+			System.out.println(product.getProductCatagory().getId());
+			actualProduct=productRepository.save(product);
+			productCatagory.setQuantity(productCatagory.getQuantity()+1);
 		Long productCategoryId = product.getProductCatagoryId();
 		Long productWarehouseId = product.getProductWarehouseId();
 		ProductWarehouse productWarehouse = null;

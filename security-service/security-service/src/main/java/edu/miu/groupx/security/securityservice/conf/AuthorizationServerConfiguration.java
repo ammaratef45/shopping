@@ -43,4 +43,6 @@ public class AuthorizationServerConfiguration implements AuthorizationServerConf
     TokenStore jdbcTokenStore() {
         return new JdbcTokenStore(dataSource);
     }
+
+
 }

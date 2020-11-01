@@ -24,4 +24,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         new AccountStatusUserDetailsChecker().check(userDetails);
         return userDetails;
     }
+
+    public void saveUser(User user) {
+        repository.save(user);
+    }
 }
