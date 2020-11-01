@@ -11,10 +11,9 @@ import javax.persistence.Entity;
 import java.util.*;
 >>>>>>> b7256c84e7c5252921a21e7df85793946420a9af
 
+import com.fasterxml.jackson.annotation.*;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -62,9 +61,11 @@ public class Product implements Serializable {
 	private Set<Category> category= new HashSet();
 	@Transient
 	private Long productCatagoryId;
+	@JsonBackReference
 	@Transient
 	private Long productWarehouseId;
-	
+
+	@JsonManagedReference
 	@ManyToOne
 	private User user;
 	

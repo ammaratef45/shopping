@@ -13,4 +13,8 @@ public interface ProductWarehouseService {
 	List<Product> removeProductFromWarehouseById(long warehouseID, Product product, int numberOfProducts);
 	Product removeProductFromWarehouse(Product product);
 	List<Product> getAllProductsInWarehouse(long id);
+
+	Long approveProductById(Long id);
+
+	Long rejectProductById(Long id);
 }

@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Entity
@@ -24,9 +26,12 @@ public class User {
 	private String userName;
 	private String password;
 	private Boolean enebled;
-	
+
+	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	private Set<Product>Products;
+
 	public User() {
 		
 	}
@@ -72,9 +77,12 @@ public class User {
 	public void setEnebled(Boolean enebled) {
 		this.enebled = enebled;
 	}
+
+	@JsonIgnore
 	public Set<Product> getProducts() {
 		return Products;
 	}
+	@JsonIgnore
 	public void setProducts(Set<Product> products) {
 		Products = products;
 	}

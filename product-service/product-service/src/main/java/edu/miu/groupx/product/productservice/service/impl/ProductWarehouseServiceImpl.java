@@ -29,6 +29,20 @@ public class ProductWarehouseServiceImpl implements ProductWarehouseService {
 	}
 
 	@Override
+	public Long approveProductById(Long id) {
+		ProductWarehouse pw = ProductWarehouseRepository.getOne(id);
+		pw.setStatus(ProductStatus.APPROVED);
+		return ProductWarehouseRepository.save(pw).getId();
+	}
+
+	@Override
+	public Long rejectProductById(Long id) {
+		ProductWarehouse pw = ProductWarehouseRepository.getOne(id);
+		pw.setStatus(ProductStatus.REJECTED);
+		return ProductWarehouseRepository.save(pw).getId();
+	}
+
+	@Override
 	public ProductWarehouse getWarehouseById(long id) {
 
 		return ProductWarehouseRepository.findById(id).get();

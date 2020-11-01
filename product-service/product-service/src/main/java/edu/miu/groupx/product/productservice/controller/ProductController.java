@@ -2,6 +2,7 @@ package edu.miu.groupx.product.productservice.controller;
 
 import java.util.List;
 
+
 import edu.miu.groupx.product.productservice.models.ProductList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -79,4 +80,23 @@ public class ProductController {
 	void deleteProduct(@PathVariable Long id) {
 		productService.deleteProduct(id);
 	}
+
+	@GetMapping("/products/pending")
+	public List<Product> getPendingProducts() {
+
+		return productService.getPendingProducts();
+	}
+
+	@GetMapping("/products/approved")
+	public List<Product> getApprovedProducts() {
+
+		return productService.getApprovedProducts();
+	}
+
+	@GetMapping("/products/rejected")
+	public List<Product> getRejectedProducts() {
+
+		return productService.getRejectedProducts();
+	}
+
 }

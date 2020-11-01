@@ -14,12 +14,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Entity
 @Data
 public class ProductWarehouse {
-	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

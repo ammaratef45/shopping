@@ -1,7 +1,6 @@
 package edu.miu.groupx.product.productservice.controller;
 
 import edu.miu.groupx.product.productservice.models.Product;
-import edu.miu.groupx.product.productservice.models.ProductAndWareHouse;
 import edu.miu.groupx.product.productservice.service.ReportService;
 import edu.miu.groupx.report.reportservice.dto.ReportProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
