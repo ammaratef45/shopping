@@ -1,9 +1,12 @@
 server:
-  port: 8084
-
+  port: 8094
+eureka:
+  client:
+    service-url:
+      default-zone=http://localhost:8761/eureka:
 spring:
   application:
-    name: product-service
+    name: security-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: "jdbc:mysql://162.241.219.101:3306/lilcpand_elegant_shared?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
