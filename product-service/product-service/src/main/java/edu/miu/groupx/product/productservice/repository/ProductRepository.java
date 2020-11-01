@@ -2,6 +2,7 @@ package edu.miu.groupx.product.productservice.repository;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,7 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 
 	Product findByName(String productName);
-
 	/*
 	 * @Query(value = "select p from Product p  where p.status = :status ")
 	 * List<Product> getNew(@Param(value = "status") ProductStatus productStatus);
@@ -47,4 +47,16 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 //	SELECT p.id, p.price, p.name, w.quantity as stockAmount from Product p join product_warehouse w on p.warehouse_id=w.id where p.user_id=1 order by p.id
 	@Query("SELECT p from Product p where p.user.id= :id order by p.id")
 	List<Product> findRProductsByVendorId(@Param("id") Long id);
+
+	@JsonIgnore
+	@Query("SELECT p,w from Product p, ProductWarehouse w where w.id=p.id AND w.status='NEW'")
+	List<Product> getPendingProducts();
+
+	@JsonIgnore
+	@Query("SELECT p,w from Product p, ProductWarehouse w where w.id=p.id AND w.status='APPROVED'")
+	List<Product> getApprovedProducts();
+
+	@JsonIgnore
+	@Query("SELECT p,w from Product p, ProductWarehouse w where w.id=p.id AND w.status='REJECTED'")
+	List<Product> getRejectedProducts();
 }

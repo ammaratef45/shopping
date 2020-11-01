@@ -3,7 +3,6 @@ package edu.miu.groupx.product.productservice.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.miu.groupx.product.productservice.models.Product;
-import edu.miu.groupx.product.productservice.models.Category;
 import edu.miu.groupx.product.productservice.models.ProductWarehouse;
-import edu.miu.groupx.product.productservice.service.CategoryService;
 import edu.miu.groupx.product.productservice.service.ProductWarehouseService;
 
 @RestController
@@ -65,8 +62,15 @@ public class ProductWarehouseController {
 
 	@DeleteMapping("ProductWarehouses/{id}")
 	void deleteWarehouse(@PathVariable Long id) {
-		
-		
 	}
 
+	@PutMapping("/warehouse/{id}/approve")
+	public Long approveProductById(@PathVariable Long id) {
+		return productWarehouseService.approveProductById(id);
+	}
+
+	@PutMapping("/warehouse/{id}/reject")
+	public Long rejectProductById(@PathVariable Long id) {
+		return productWarehouseService.rejectProductById(id);
+	}
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import edu.miu.groupx.product.productservice.models.Product;
 import edu.miu.groupx.product.productservice.models.Category;
-import edu.miu.groupx.product.productservice.models.ProductStatus;
 
 public interface ProductService {
 	Product save(Product product);
@@ -24,5 +23,11 @@ public interface ProductService {
     void delete(Product product);
    
     List<Product> search(String keyword);
-    
+
+    List<Product> getPendingProducts();
+
+    List<Product> getApprovedProducts();
+
+
+    List<Product> getRejectedProducts();
 }

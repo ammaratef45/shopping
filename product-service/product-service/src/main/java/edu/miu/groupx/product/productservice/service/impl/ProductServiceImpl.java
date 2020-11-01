@@ -1,25 +1,19 @@
 package edu.miu.groupx.product.productservice.service.impl;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
+import edu.miu.groupx.product.productservice.models.ProductStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.miu.groupx.product.productservice.models.ProductImages;
 import edu.miu.groupx.product.productservice.models.Product;
 import edu.miu.groupx.product.productservice.models.Category;
-import edu.miu.groupx.product.productservice.models.ProductStatus;
 import edu.miu.groupx.product.productservice.models.ProductWarehouse;
 import edu.miu.groupx.product.productservice.repository.CategoryRepository;
 import edu.miu.groupx.product.productservice.repository.ProductRepository;
 import edu.miu.groupx.product.productservice.repository.ProductWarehouseRepository;
 import edu.miu.groupx.product.productservice.service.ProductService;
-import edu.miu.groupx.product.productservice.utils.S3Utils;
 
 @Service
 @Transactional
@@ -138,4 +132,18 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.searchProducts(keyword);
 	}
 
+	@Override
+	public List<Product> getPendingProducts() {
+		return productRepository.getPendingProducts();
+	}
+
+	@Override
+	public List<Product> getApprovedProducts() {
+		return productRepository.getApprovedProducts();
+	}
+
+	@Override
+	public List<Product> getRejectedProducts() {
+		return productRepository.getRejectedProducts();
+	}
 }
