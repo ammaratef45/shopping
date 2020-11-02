@@ -1,0 +1,20 @@
+server:
+  port: 8094
+eureka:
+  client:
+    service-url:
+      default-zone=http://localhost:8761/eureka:
+spring:
+  application:
+    name: security-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://162.241.219.101:3306/lilcpand_elegant_shared?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+    username: lilcpand_shared
+    password: 123456
+    initialization-mode: never
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update

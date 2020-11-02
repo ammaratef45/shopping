@@ -1,0 +1,11 @@
+Eureka server 8761
+Gateway       8766
+product-service 8090
+shopping-service 8091
+payment-service 8092
+order-service   8093
+security-service 8094
+bank-service     8095
+card-service     8096
+
+http://localhost:8766/product-service/api/products

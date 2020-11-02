@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-
-@Controller
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@RestController
 @RequestMapping("bank")
 public class BankServiceController {
     @Autowired
@@ -53,6 +53,7 @@ public class BankServiceController {
 
     /**
      * ********************************ACCOUNT RELATED APIS******************************************
+     *
      */
     @PostMapping("/make-payment")
     public ResponseEntity<BankResponseMessages> makePayment(@RequestBody Order order) {
@@ -77,15 +78,22 @@ public class BankServiceController {
         return new ResponseEntity<BankResponseMessages>(accountService.makePayment(sourceAccountNumber, destinationAccountNumber, amount), HttpStatus.CREATED);
     }
 
-    @PostMapping("/deposit/{amount}")
-    public ResponseEntity<BankResponseMessages> deposit(@RequestBody String accountNumber, @PathVariable BigDecimal amount) {
-
+    @PostMapping("/deposit")
+    public ResponseEntity<BankResponseMessages> deposit(@RequestBody Transaction transaction) {
+        String accountNumber = transaction.getAccountNumber();
+        BigDecimal amount = transaction.getAmount();
         return new ResponseEntity<BankResponseMessages>(accountService.deposit(amount, accountNumber), HttpStatus.CREATED);
 
     }
 
-    @PostMapping("/withdraw/{amount}")
-    public ResponseEntity<BankResponseMessages> withdraw(@RequestBody String accountNumber, @PathVariable BigDecimal amount) {
+    @PostMapping("/withdraw")
+    public ResponseEntity<BankResponseMessages> withdraw(@RequestBody Transaction transaction) {
+        String accountNumber = transaction.getAccountNumber();
+        BigDecimal amount = transaction.getAmount();
         return new ResponseEntity<>(accountService.withdraw(amount, accountNumber), HttpStatus.CREATED);
+    }
+    @GetMapping("/accounts")
+    public ResponseEntity<List<CheckingAccount>> getAllAccounts(){
+        return new ResponseEntity<>(accountService.getAllCheckingAccount(), HttpStatus.CREATED);
     }
 }
