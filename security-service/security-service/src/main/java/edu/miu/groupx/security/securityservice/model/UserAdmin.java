@@ -31,7 +31,7 @@ public class UserAdmin
 	private String password;
 	
 	@Column(name = "enabled")
-	private Boolean enabled;
+	private int enabled;
 	
 	@JoinColumn(name = "address")
 	private String address;
@@ -91,10 +91,10 @@ public class UserAdmin
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Boolean getEnabled() {
+	public int getEnabled() {
 		return enabled;
 	}
-	public void setEnabled(Boolean enabled) {
+	public void setEnabled(int enabled) {
 		this.enabled = enabled;
 	}
 	public String getAddress() {

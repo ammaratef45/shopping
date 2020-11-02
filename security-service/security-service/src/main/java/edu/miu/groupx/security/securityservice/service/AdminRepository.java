@@ -1,11 +1,14 @@
 package edu.miu.groupx.security.service;
 
+import edu.miu.groupx.security.securityservice.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import edu.miu.groupx.security.model.UserAdmin;
+
+import java.util.List;
 
 
 public interface AdminRepository extends JpaRepository<UserAdmin, String>
@@ -27,6 +30,14 @@ public interface AdminRepository extends JpaRepository<UserAdmin, String>
 	@Modifying
 	@Query(nativeQuery=true, value="UPDATE Product prod SET prod.status = :status WHERE prod.userid = :id")
 	void updateStatusProduct(@Param("id") String id, @Param("status") String status);
-	
-	
+
+
+	@Query(value="SELECT u from UserAdmin u where u.role='VENDOR' AND u.enabled=0")
+	List<UserAdmin> getPendingVendors();
+
+	@Query(value="SELECT u from UserAdmin u where u.role='VENDOR' AND u.enabled<>0 And u.enabled<>1")
+	List<edu.miu.groupx.security.model.UserAdmin> getRejectedVendors();
+
+	@Query(value="SELECT u from UserAdmin u where u.role='VENDOR' AND u.enabled=1")
+	List<edu.miu.groupx.security.model.UserAdmin> getapprovedVendors();
 }

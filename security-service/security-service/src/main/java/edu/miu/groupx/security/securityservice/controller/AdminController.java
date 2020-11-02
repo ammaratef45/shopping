@@ -3,6 +3,7 @@ package edu.miu.groupx.security.controller;
 
 import java.util.List;
 
+import edu.miu.groupx.security.securityservice.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,40 @@ import edu.miu.groupx.security.service.AdminService;
 public class AdminController 
 {
 	@Autowired
-	private AdminService adminSer;	
+	private AdminService adminSer;
+
+
+	@GetMapping("/users/vendors/pending")
+	public List<UserAdmin> getPendingVendors()
+	{
+		return adminSer.getPendingVendors();
+	}
+
+	@GetMapping("/users/vendors/rejected")
+	public List<UserAdmin> getRejectedVendors()
+	{
+		return adminSer.getRejectedVendors();
+	}
+
+	@GetMapping("/users/vendors/approved")
+	public List<UserAdmin> getApprovedVendors()
+	{
+		return adminSer.getApprovedVendors();
+	}
+
+	@PutMapping("/users/vendors/{id}/approve")
+	public UserAdmin approveVendorById(@PathVariable String id)
+	{
+		return adminSer.approveVendorById(id);
+	}
+
+	@PutMapping("/users/vendors/{id}/reject")
+	public UserAdmin rejectVendorById(@PathVariable String id)
+	{
+		return adminSer.rejectVendorById(id);
+	}
+
+	/////////////////////////////////////////////////
 	
 	
 	// Display the Form for Creating New User
@@ -47,7 +81,7 @@ public class AdminController
 	
 	// Get the whole User List
 	@GetMapping("/display")
-	public List<User> displayUserList()
+	public List<UserAdmin> displayUserList()
 	{
 		return adminSer.findAll();
 	}
