@@ -7,12 +7,14 @@ import edu.miu.groupx.product.productservice.repository.SequenceNumberRepository
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
+/*@Entity
 @Table(name="SEQUENCE_NUMBER",uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "TYPE" }) })
 @NamedQueries({
 		@NamedQuery(name = SequenceNumberRepository.QUERY_NAME.findBySequenceType, query = SequenceNumberRepository.QUERY.findBySequenceType) })
+*/
 public class SequenceNumber implements Serializable {
+/*
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="ID")
@@ -56,5 +58,5 @@ public class SequenceNumber implements Serializable {
 
 	public void setVersion(int version) {
 		this.version = version;
-	}
+	}*/
 }

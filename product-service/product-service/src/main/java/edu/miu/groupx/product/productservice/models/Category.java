@@ -13,7 +13,6 @@ import javax.persistence.*;
 import lombok.Data;
 
 @Entity
-@Data
 public class Category implements Serializable {
 
 	@Id
@@ -22,9 +21,11 @@ public class Category implements Serializable {
 	private String name;
 	
 
-	@ManyToMany(mappedBy = "category", cascade = CascadeType.ALL)
-	
-	private Set<Product> products;
+	@OneToMany( mappedBy = "category", fetch = FetchType.EAGER)
+	private Set<Product> products = new HashSet<>();
+
+	public Category() {
+	}
 
 	public Long getId() {
 		return id;
@@ -42,7 +43,7 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 
-	
+
 	public Set<Product> getProducts() {
 		return products;
 	}
@@ -51,13 +52,13 @@ public class Category implements Serializable {
 		this.products = products;
 	}
 
-	
-	
+
+
 	  public void addProducts(Product product) {
-	  
-	  products.add(product); 
+
+	  products.add(product);
 	  }
-	 
+
 
 	
 	

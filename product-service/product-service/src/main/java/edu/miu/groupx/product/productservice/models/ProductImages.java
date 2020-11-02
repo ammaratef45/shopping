@@ -16,48 +16,34 @@ import com.sun.istack.NotNull;
 import lombok.Data;
 
 @Entity
-@Data
-public class ProductImages implements Serializable{
+public class ProductImages implements Serializable {
 
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	 @NotNull
-	 private String imagePth;
-	 
-	/*
-	 * @Transient private Long prodId;
-	 */
-		
-	public ProductImages() {
-		
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    @NotNull
+    private String imagePth;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public ProductImages() {
 
-	public String getImagePth() {
-		return imagePth;
-	}
+    }
 
-	public void setImagePth(String imagePth) {
-		this.imagePth = imagePth;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	/*
-	 * public Long getProdId() { return prodId; }
-	 * 
-	 * public void setProdId(Long prodId) { this.prodId = prodId; }
-	 */
-	
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	
-	
-	
-	
+    public String getImagePth() {
+        return imagePth;
+    }
+
+    public void setImagePth(String imagePth) {
+        this.imagePth = imagePth;
+    }
+
+
 }

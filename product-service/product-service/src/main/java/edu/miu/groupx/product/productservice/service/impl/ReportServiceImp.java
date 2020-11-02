@@ -18,8 +18,9 @@ public class ReportServiceImp implements ReportService {
     ProductRepository productRepository;
 
     @Override
+
     public List<Product> getReportProduct(Long id) {
-        return productRepository.findRProductsByVendorId(id);
-//        return null;
+
+        return null;
     }
 }

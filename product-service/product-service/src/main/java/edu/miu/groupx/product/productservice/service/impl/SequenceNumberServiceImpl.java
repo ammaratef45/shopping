@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
-
+/*
 @Service
 @Transactional
 public class SequenceNumberServiceImpl implements SequenceNumberService {
@@ -48,4 +48,4 @@ public class SequenceNumberServiceImpl implements SequenceNumberService {
     }
 
 
-}
+}*/

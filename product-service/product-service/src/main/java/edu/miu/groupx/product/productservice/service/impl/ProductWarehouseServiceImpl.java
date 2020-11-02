@@ -25,7 +25,7 @@ public class ProductWarehouseServiceImpl implements ProductWarehouseService {
 	
 	public List<Product> getAllProductsInWarehouse(long id) {
 
-		return ProductWarehouseRepository.findById(id).get().getProducts();
+		return null;
 	}
 
 	@Override
@@ -62,13 +62,13 @@ public class ProductWarehouseServiceImpl implements ProductWarehouseService {
 
 	@Override
 	public List<Product> removeProductFromWarehouseById(long warehouseID, Product product, int numberOfProducts) {
-		ProductWarehouse productWarehouse = ProductWarehouseRepository.findById(warehouseID).get();
+		/*ProductWarehouse productWarehouse = ProductWarehouseRepository.findById(warehouseID).get();
 		boolean result=productWarehouse.reduceProduct(product, numberOfProducts);
 		if(result) {
 		ProductWarehouseRepository.save(productWarehouse);
-		}
+		}*/
 		
-		return productWarehouse.getProducts();
+		return null;
 	}
 
 }

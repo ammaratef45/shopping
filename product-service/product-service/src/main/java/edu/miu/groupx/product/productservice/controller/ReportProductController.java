@@ -2,7 +2,6 @@ package edu.miu.groupx.product.productservice.controller;
 
 import edu.miu.groupx.product.productservice.models.Product;
 import edu.miu.groupx.product.productservice.service.ReportService;
-import edu.miu.groupx.report.reportservice.dto.ReportProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +21,7 @@ public class ReportProductController {
 
     @Autowired
     private ModelMapper modelMapper;
-
+/*
     @GetMapping("/salesForVendor/{vendorId}")
     public List<ReportProductDto> salesReportsVendor(@PathVariable long vendorId) {
         List<Product> products = reportService.getReportProduct(vendorId);
@@ -36,4 +35,6 @@ public class ReportProductController {
         ReportProductDto reportProductDto = modelMapper.map(product, ReportProductDto.class);
         return reportProductDto;
     }
+    */
+
 }
