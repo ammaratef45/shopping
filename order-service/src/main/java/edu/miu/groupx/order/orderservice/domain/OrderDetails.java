@@ -2,35 +2,61 @@ package edu.miu.groupx.order.orderservice.domain;
 
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.math.BigDecimal;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.sun.istack.NotNull;
 
 @Entity
-@JsonIgnoreProperties("order")
+
 public class OrderDetails {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long orderDetailId;
-	private Double quantity;
-	private Double itemPrice;
-	private Double subTotal;
+	
+	
+	
+	@NotNull
+	private BigDecimal quantity=BigDecimal.ZERO;
+	@NotNull
+	private BigDecimal itemPrice=BigDecimal.ZERO;
+	@NotNull
+	private BigDecimal subTotal=BigDecimal.ZERO;
+	
 	@ManyToOne
 	@JoinColumn(name = "order_id")
 	private Orders order;
+	
+	@NotNull
 	private Long productId;
+	
+	@NotNull
+	private Long vendeorID;
 
-	public OrderDetails(Double quantity, double itemPrice, Long productId){
-		this.quantity = quantity;
-		this.itemPrice = itemPrice;
-		this.productId = productId;
-		this.subTotal = quantity * itemPrice;
-	}
+	
+
+
+
 
 	public OrderDetails(){
 
+	}
+	
+	
+
+	public long getVendeorID() {
+		return vendeorID;
+	}
+
+	public void setVendeorID(long vendeorID) {
+		this.vendeorID = vendeorID;
 	}
 
 	public Long getOrderDetailId() {
@@ -41,27 +67,27 @@ public class OrderDetails {
 		this.orderDetailId = orderDetailId;
 	}
 
-	public Double getQuantity() {
+	public BigDecimal getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(Double quantity) {
+	public void setQuantity(BigDecimal quantity) {
 		this.quantity = quantity;
 	}
 
-	public Double getItemPrice() {
+	public BigDecimal getItemPrice() {
 		return itemPrice;
 	}
 
-	public void setItemPrice(Double itemPrice) {
+	public void setItemPrice(BigDecimal itemPrice) {
 		this.itemPrice = itemPrice;
 	}
 
-	public Double getSubTotal() {
-		return getQuantity() * getItemPrice();
+	public BigDecimal getSubTotal() {
+		return getQuantity().multiply(getItemPrice());
 	}
 
-	public void setSubTotal(Double subTotal) {
+	public void setSubTotal(BigDecimal subTotal) {
 		this.subTotal = subTotal;
 	}
 
@@ -80,6 +106,14 @@ public class OrderDetails {
 	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
+
+	
+	
+
+
+
+	
+
 
 	@Override
 	public String toString() {
