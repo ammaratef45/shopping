@@ -19,13 +19,13 @@ import edu.miu.groupx.order.orderservice.domain.Orders;
 import edu.miu.groupx.order.orderservice.service.impl.OrderServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("orders")
 public class OrderController {
 
     @Autowired
     private OrderServiceImpl orderService;
 
-    @PostMapping(("orders/add"))
+    @PostMapping("")
     public Orders addOrder(@RequestBody Orders orders){
     	 orderService.save(orders);
     	 
@@ -39,7 +39,7 @@ public class OrderController {
 	 * 
 	 *
 	 ***/
-    @GetMapping("/orders")
+    @GetMapping("")
     public List<Orders> getOrders(){
         return orderService.getAllOrders();
     }
@@ -51,7 +51,7 @@ public class OrderController {
 	 ***/
 	
 	
-	@GetMapping("/{userId}/orders")
+	@GetMapping("users/{userId}")
 	public Orders getOrderByUserID(@PathVariable int userId) {
 		return orderService.getOrderByUserID((long) userId);
 	}
@@ -63,7 +63,7 @@ public class OrderController {
 	 *
 	 ***/
 
-	@GetMapping("/orders/{orderId}")
+	@GetMapping("/{orderId}")
 	public Orders getOrderByOrderID(@PathVariable int orderId) {
 		return orderService.getOrderById((long) orderId);
 	}
@@ -75,7 +75,7 @@ public class OrderController {
 	 *
 	 ***/
 
-    @DeleteMapping("/remove/{orderId}")
+    @DeleteMapping("/{orderId}")
     public void deleteByOrderid(@PathVariable("orderId") long orderId){
         orderService.deleteOrder(orderId);
     }
@@ -86,7 +86,7 @@ public class OrderController {
    	 *
    	 ***/
 
-    @PutMapping("/update/{orderId}")
+    @PutMapping("/{orderId}")
     public Orders updateOrder(@PathVariable("orderId") long orderId, @RequestBody Orders order){
         return orderService.updateOrder(orderId, order);
     }
@@ -96,7 +96,7 @@ public class OrderController {
    	 * 
    	 *
    	 ***/
-    @GetMapping("/OrderHistory")
+    @GetMapping("orderHistory")
     public List<OrderHistory> findOrderHistoryByOrder(@RequestBody  Orders orders){
     	return orderService.findOrderHistoryByOrder(orders);
     }
@@ -106,7 +106,7 @@ public class OrderController {
    	 * 
    	 *
    	 ***/
-    @PostMapping("/update/{orderId}")
+    @PutMapping("order-status/{orderId}")
     public Orders cancelOrder(@RequestBody Orders orders) {
     	 return orderService.cancelOrder(orders);
     }
