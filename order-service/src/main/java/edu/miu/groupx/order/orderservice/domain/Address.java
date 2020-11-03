@@ -1,9 +1,6 @@
 package edu.miu.groupx.order.orderservice.domain;
 
-
-
 public class Address {
-
 
 	private String street;
 	private String city;

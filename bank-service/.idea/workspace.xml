@@ -2,6 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ead93d51-6e31-4303-963f-fcedab3ec114" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/../order-service/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/.idea/order-service.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/OrderServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/OrderServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/Repository/OrderDetailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/Repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/Repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/domain/Address.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/domain/OrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/domain/OrderDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/domain/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/domain/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/order-service/src/main/java/edu/miu/groupx/order/orderservice/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/order-service/src/main/resources/application.properties" afterDir="false" />
+=======
       <change afterPath="$PROJECT_DIR$/.idea/bank-service.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../payment-service/payment-service/src/main/java/edu/miu/groupx/payment/paymentservice/model/Transaction.java" afterDir="false" />
@@ -28,6 +45,7 @@
       <change beforePath="$PROJECT_DIR$/../payment-service/payment-service/src/main/java/edu/miu/groupx/payment/paymentservice/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../payment-service/payment-service/src/main/java/edu/miu/groupx/payment/paymentservice/service/PaymentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../payment-service/payment-service/src/main/java/edu/miu/groupx/payment/paymentservice/service/impl/PaymentServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../payment-service/payment-service/src/main/java/edu/miu/groupx/payment/paymentservice/service/impl/PaymentServiceImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../payment-service/payment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../payment-service/payment-service/src/main/resources/application.properties" afterDir="false" />
+>>>>>>> 8141878c8154804c0f4e4abd417eacaa0ad4be33
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +69,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../order-service" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ead93d51-6e31-4303-963f-fcedab3ec114" name="Default Changelist" comment="" />
@@ -69,5 +92,15 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1506" y="-469" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604250256295">
+      <screen x="-1920" y="-644" width="1920" height="1040" />
+    </state>
+    <state x="-1506" y="-469" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/-1920.-644.1920.1040@-1920.-644.1920.1040" timestamp="1604250256295" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1604266408597">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680/-1920.-644.1920.1040@0.0.1280.680" timestamp="1604266408597" />
   </component>
 </project>
