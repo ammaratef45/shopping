@@ -15,10 +15,12 @@ public class CheckingAccount {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String accountNumber;
+    @OneToOne
+    private Customer accountHolder;
     @OneToOne(cascade = CascadeType.ALL)
     private Card card;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<AccountEntries> accountEntries = new ArrayList<>();
-    private BigDecimal balance;
+    private BigDecimal balance=BigDecimal.ZERO;
 
 }

@@ -3,6 +3,7 @@ package edu.miu.groupx.bankservice.service.impl;
 import edu.miu.groupx.bankservice.exeception.CustomerException;
 import edu.miu.groupx.bankservice.model.CheckingAccount;
 import edu.miu.groupx.bankservice.model.Customer;
+import edu.miu.groupx.bankservice.model.wrappermodel.User;
 import edu.miu.groupx.bankservice.repository.CustomerRepository;
 import edu.miu.groupx.bankservice.service.AccountService;
 import edu.miu.groupx.bankservice.service.CustomerService;
@@ -21,10 +22,20 @@ public class UserServiceImplementation implements CustomerService {
     private AccountService accountService;
 
     @Override
-    public Customer createNewCustomer(Customer newCustomer, String cardType) {
+    public Customer createNewCustomer(User newUser, String cardType) {
+
+        Customer newCustomer = new Customer();
+
+        newCustomer.setFirstName(newUser.getFirstName());
+        newCustomer.setLastName(newUser.getLastName());
+        newCustomer.setDob_date(newUser.getDob_date());
+        newCustomer.setDob_month(newUser.getDob_month());
+        newCustomer.setDob_year(newUser.getDob_year());
+        newCustomer.setSSN(newUser.getSSN());
 
         String holderName = newCustomer.getFirstName() + " " + newCustomer.getLastName();
         CheckingAccount account = accountService.createCheckingAccount(holderName, cardType);
+
         newCustomer.setAccount(account);
 
         return customerRepository.save(newCustomer);

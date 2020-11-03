@@ -17,7 +17,7 @@ public class Customer {
     private String dob_month;
     private String dob_year;
     private String SSN;
-    @OneToOne
+    @OneToOne(mappedBy = "accountHolder", cascade = CascadeType.ALL)
     private CheckingAccount account;
    @OneToOne
     private  Address address;

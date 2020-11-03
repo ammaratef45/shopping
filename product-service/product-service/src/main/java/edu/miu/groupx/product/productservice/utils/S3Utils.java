@@ -14,8 +14,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+
 public class S3Utils {
-    static final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
+    static final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.US_EAST_1).build();
     static final String bucket_name = "shopping-pm";
     static List<String> listObjects() {
         List<String> res = new ArrayList<>();
@@ -27,7 +30,7 @@ public class S3Utils {
         return res;
     }
 
-    static void uploadObject(String key_name, String file_path) {
+    public static void uploadObject(String key_name, String file_path) {
         s3.putObject(bucket_name, key_name, new File(file_path));
     }
 
@@ -43,4 +46,14 @@ public class S3Utils {
         s3is.close();
         fos.close();
     }
+
+	/*
+	 * public static AmazonS3 getS3() { return s3; }
+	 */
+
+	public static String getBucketName() {
+		return bucket_name;
+	}
+    
+    
 }

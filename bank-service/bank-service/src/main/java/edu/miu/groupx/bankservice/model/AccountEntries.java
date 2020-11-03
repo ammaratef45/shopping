@@ -12,8 +12,10 @@ public class AccountEntries {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String transactionNumber;
     private LocalDate transactionDate;
     private BigDecimal amount;
+    private String subjectAccountNumber;
     private TransactionType transactionType;
 
 }

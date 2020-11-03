@@ -16,7 +16,6 @@ public class VisaCard {
     private String holderName;
     private String cardNumber;
     private String CCV;
-    private String expirationMonth;
-    private String expirationYear;
+    private String expirationDate;
     private CardStatus status;
 }

@@ -5,5 +5,39 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/bank-service/bank-service/.mvn/wrapper" />
+          <root url="file://$MODULE_DIR$/bank-service/bank-service/src/main/java" />
+          <root url="file://$MODULE_DIR$/bank-service/bank-service/src/test/java" />
+          <root url="file://$MODULE_DIR$/card-service/card-service/.mvn/wrapper" />
+          <root url="file://$MODULE_DIR$/card-service/card-service/src/main/java" />
+          <root url="file://$MODULE_DIR$/card-service/card-service/src/test/java" />
+          <root url="file://$MODULE_DIR$/order-service/order-service/.mvn/wrapper" />
+          <root url="file://$MODULE_DIR$/order-service/order-service/src/main/java" />
+          <root url="file://$MODULE_DIR$/order-service/order-service/src/test/java" />
+          <root url="file://$MODULE_DIR$/payment-service/payment-service/.mvn/wrapper" />
+          <root url="file://$MODULE_DIR$/payment-service/payment-service/src/main/java" />
+          <root url="file://$MODULE_DIR$/payment-service/payment-service/src/test/java" />
+          <root url="file://$MODULE_DIR$/product-service/product-service/.mvn/wrapper" />
+          <root url="file://$MODULE_DIR$/product-service/product-service/src/main/java" />
+          <root url="file://$MODULE_DIR$/product-service/product-service/src/test/java" />
+          <root url="file://$MODULE_DIR$/security-service/security-service/.mvn/wrapper" />
+          <root url="file://$MODULE_DIR$/security-service/security-service/src/main/java" />
+          <root url="file://$MODULE_DIR$/security-service/security-service/src/test/java" />
+          <root url="file://$MODULE_DIR$/service-discovery/.mvn/wrapper" />
+          <root url="file://$MODULE_DIR$/service-discovery/src/main/java" />
+          <root url="file://$MODULE_DIR$/service-discovery/src/test/java" />
+          <root url="file://$MODULE_DIR$/shopping/.mvn/wrapper" />
+          <root url="file://$MODULE_DIR$/shopping/src/main/java" />
+          <root url="file://$MODULE_DIR$/shopping/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
