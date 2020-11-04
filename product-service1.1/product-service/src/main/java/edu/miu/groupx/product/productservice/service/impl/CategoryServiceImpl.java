@@ -19,7 +19,9 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Category save(Category category) {
-		
+		Category categorycheck=getByName(category.getName());
+		if(categorycheck!=null)
+			return null;
 		return categoryRepository.save(category);
 	}
 
@@ -47,7 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
 	  { 
 		  Category Category= getById(id);
 		  Category.setName(newProductCatagory.getName());
-		  return categoryRepository.save(Category);
+		  return save(Category);
 	  
 	  }
 	 
