@@ -53,8 +53,9 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public ProductDTO createProduct(@RequestBody ProductDTO productDTO) {
-        return this.productService.createProduct(productDTO);
+    public ProductDTO createProduct( @RequestBody ProductDTO productDTO) {
+        System.out.println("here");
+        return this.productService.createProduct(productDTO, productDTO.getVendorId());
     }
 
     @DeleteMapping("/products")

@@ -14,6 +14,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.transfer.TransferManager;
 import com.amazonaws.services.s3.transfer.TransferManagerBuilder;
 import com.amazonaws.services.s3.transfer.Upload;
+import edu.miu.groupx.product.productservice.models.dtos.ImageResponse;
 import edu.miu.groupx.product.productservice.service.ProductService;
 import edu.miu.groupx.product.productservice.utils.S3Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,11 @@ public class ProductImagesController {
     @Autowired
     ProductService productService;
 
+    @GetMapping("/products/res/{id}")
+    ImageResponse getProductImages(@PathVariable long id) {
+        return this.productImagesService.getProductImages(id);
+    }
+
     @PostMapping("/products/res")
     public String uploadImage(@RequestParam("productId") long productId, @RequestParam("vendorId") long vendorId, @RequestParam("file") MultipartFile file) {
         boolean ownership = this.productService.checkProductOwnership(productId, vendorId);
@@ -46,7 +52,8 @@ public class ProductImagesController {
                     HttpStatus.FORBIDDEN, "ownership check failed"
             );
         String url = S3Utils.uploadFile(file, productId, vendorId);
-        return this.productImagesService.saveProductImage(productId, url);
+        this.productImagesService.saveProductImage(productId, url);
+        return url;
 
     }
 

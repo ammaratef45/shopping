@@ -10,16 +10,22 @@ import edu.miu.groupx.product.productservice.models.*;
 import edu.miu.groupx.product.productservice.models.dtos.ProductDTO;
 import edu.miu.groupx.product.productservice.models.dtos.ProductsDTO;
 import edu.miu.groupx.product.productservice.repository.CategoryRepository;
+import edu.miu.groupx.product.productservice.service.ProductImagesService;
+import edu.miu.groupx.product.productservice.utils.S3Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import edu.miu.groupx.product.productservice.repository.ProductRepository;
 import edu.miu.groupx.product.productservice.service.ProductService;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 
 @Service
+@Transactional
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
@@ -27,6 +33,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     CategoryRepository categoryRepository;
+
+    @Autowired
+    ProductImagesService productImagesService;
 
 
     @Override
@@ -46,23 +55,27 @@ public class ProductServiceImpl implements ProductService {
         return productsDTO;
     }
 
+
     @Override
     public ProductDTO updateProduct(ProductDTO productDTO) {
-        Optional<Product> productOptional = this.productRepository.findById(productDTO.getId());
-        if (productOptional.isPresent() && productOptional.get().getUserId() == productDTO.getVendorId()) {
-            Product product = productOptional.get();
+        Product product = this.productRepository.getOne(productDTO.getId());
+        System.out.println(product.getUserId());
+        if (product.getUserId() == productDTO.getVendorId()) {
+
             product.setName(productDTO.getName());
             product.setCategory(this.categoryRepository.findByName(productDTO.getCategory()));
             product.setDescription(productDTO.getDescription());
             product.getProductWarehouse().setQuantity(productDTO.getQuantity());
             product.setPrice(productDTO.getPrice());
             return this.convertToProductDTO(this.productRepository.save(product));
-        }
-        return null;
+        } else
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN, "ownership check failed"
+            );
     }
 
     @Override
-    public ProductDTO createProduct(ProductDTO productDTO) {
+    public ProductDTO createProduct(ProductDTO productDTO, long vendorId) {
         ProductWarehouse productWarehouse = ProductWarehouse.builder()
                 .quantity(productDTO.getQuantity())
                 .status(ProductStatus.NEW)
@@ -74,20 +87,27 @@ public class ProductServiceImpl implements ProductService {
                 .productWarehouse(productWarehouse)
                 .price(productDTO.getPrice())
                 .pictures(new ArrayList<>())
-                .userId(productDTO.getVendorId()).build();
-        System.out.println(product.getCategory().getName());
-        return this.convertToProductDTO(this.productRepository.save(product));
+                .userId(vendorId).build();
+        Product product1 = this.productRepository.save(product);
+        return this.convertToProductDTO(product1);
     }
 
     @Override
     public void deleteProduct(long productId, long vendorId) {
-        Optional<Product> productOptional = this.productRepository.findById(productId);
-        if (productOptional.isPresent() && productOptional.get().getUserId() == vendorId)
+        Product product = this.productRepository.getOne(productId);
+        if (product.getUserId() == vendorId) {
+            product
+                    .getPictures()
+                    .stream()
+                    .map(ProductImages::getImagePth)
+                    .forEach(s -> S3Utils.deleteFileFromS3Bucket(s));
             this.productRepository.deleteById(productId);
-        throw new ResponseStatusException(
-                HttpStatus.FORBIDDEN, "ownership check failed"
-        );
 
+        } else {
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN, "ownership check failed"
+            );
+        }
     }
 
     @Override
@@ -146,6 +166,14 @@ public class ProductServiceImpl implements ProductService {
         return productsDTO;
     }
 
+    @Override
+    public void addProductImage(long productId, String url) {
+        Product product = this.productRepository.getOne(productId);
+        ProductImages productImages = new ProductImages();
+        productImages.setImagePth(url);
+        product.addImage(productImages);
+        this.productRepository.save(product);
+    }
 
     private ProductDTO convertToProductDTO(Product product) {
         ProductDTO productDTO = ProductDTO.builder().id(product.getId())
