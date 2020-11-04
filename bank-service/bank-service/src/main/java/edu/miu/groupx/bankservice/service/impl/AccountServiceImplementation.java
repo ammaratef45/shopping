@@ -105,6 +105,7 @@ public class AccountServiceImplementation implements AccountService {
             account = this.findAccountByAccountNumber(accountNumber);
             account.setBalance(account.getBalance().add(amount));
             AccountEntries accountEntry = new AccountEntries();
+            accountEntry.setTransactionNumber(this.generateTransactionNumber());
             accountEntry.setTransactionDate(LocalDate.now());
             accountEntry.setAmount(amount);
             accountEntry.setSubjectAccountNumber(accountNumber);
@@ -124,36 +125,48 @@ public class AccountServiceImplementation implements AccountService {
     }
 
     @Override
-    public BankResponseMessages withdraw(BigDecimal amount, String accountNumber) {
+    public BankResponseMessages withdraw(BigDecimal amount, String accountNumber) throws NullPointerException {
 
         CheckingAccount account = this.findAccountByAccountNumber(accountNumber);
         BankResponseMessages responseMessages = new BankResponseMessages();
         responseMessages.setTransferDate(LocalDate.now());
-        if (this.hasEnoughBalance(amount, accountNumber)) {
+        boolean enoughBalance = false;
+        try{
+            enoughBalance = hasEnoughBalance(amount,accountNumber);
+        }catch (NullPointerException e){
+            responseMessages.setTransferMessage(OperationMessages.ACCOUNT_NOT_FOUND.getOperationMessages());
+            responseMessages.setTransferStatus(OperationStatus.FAILED.getOperationStatusMessages());
+            return responseMessages;
+        }
+
+        if (enoughBalance) {
             try {
-                account.setBalance(account.getBalance().subtract(amount));
-                AccountEntries accountEntry = new AccountEntries();
-                accountEntry.setTransactionDate(LocalDate.now());
-                accountEntry.setAmount(amount);
-                accountEntry.setSubjectAccountNumber(accountNumber);
-                accountEntry.setTransactionType(TransactionType.WITHDRAWAL);
-                account.getAccountEntries().add(accountEntry);
-                checkingAccountRepository.save(account);
+                {
+                    account.setBalance(account.getBalance().subtract(amount));
+                    AccountEntries accountEntry = new AccountEntries();
+                    accountEntry.setTransactionNumber(this.generateTransactionNumber());
+                    accountEntry.setTransactionDate(LocalDate.now());
+                    accountEntry.setAmount(amount);
+                    accountEntry.setSubjectAccountNumber(accountNumber);
+                    accountEntry.setTransactionType(TransactionType.WITHDRAWAL);
+                    account.getAccountEntries().add(accountEntry);
+                    checkingAccountRepository.save(account);
+                }
 
             } catch (Exception e) {
-                responseMessages.setTransferStatus(OperationMessages.WITHDRAWAL_UNSUCCESSFUL.getOperationMessages());
-                responseMessages.setTransferMessage(OperationStatus.FAILED.getOperationStatusMessages());
+                responseMessages.setTransferStatus(OperationStatus.FAILED.getOperationStatusMessages());
+                responseMessages.setTransferMessage(OperationMessages.WITHDRAWAL_UNSUCCESSFUL.getOperationMessages());
                 return responseMessages;
 
             }
 
         } else {
-            responseMessages.setTransferStatus(OperationMessages.NOT_ENOUGH_BALANCE.getOperationMessages());
-            responseMessages.setTransferMessage(OperationStatus.FAILED.getOperationStatusMessages());
+            responseMessages.setTransferStatus(OperationStatus.FAILED.getOperationStatusMessages());
+            responseMessages.setTransferMessage(OperationMessages.NOT_ENOUGH_BALANCE.getOperationMessages());
             return responseMessages;
         }
-        responseMessages.setTransferStatus(OperationMessages.WITHDRAWAL_SUCCESSFUL.getOperationMessages());
-        responseMessages.setTransferMessage(OperationStatus.FAILED.getOperationStatusMessages());
+        responseMessages.setTransferStatus(OperationStatus.SUCCESS.getOperationStatusMessages());
+        responseMessages.setTransferMessage(OperationMessages.WITHDRAWAL_SUCCESSFUL.getOperationMessages());
         return responseMessages;
     }
 
@@ -167,14 +180,11 @@ public class AccountServiceImplementation implements AccountService {
     public boolean hasEnoughBalance(BigDecimal amount, String accountNumber) {
         BigDecimal currentBalance = null;
         BigDecimal difference = null;
-        try {
-            CheckingAccount account = this.findAccountByAccountNumber(accountNumber);
-            currentBalance = account.getBalance();
-            difference = currentBalance.subtract(amount);
 
-        } catch (Exception e) {
-            System.out.println("Can not find account..............");
-        }
+        CheckingAccount account = this.findAccountByAccountNumber(accountNumber);
+        currentBalance = account.getBalance();
+        difference = currentBalance.subtract(amount);
+
         return (difference.compareTo(BigDecimal.ZERO) != -1);
     }
 
@@ -202,6 +212,7 @@ public class AccountServiceImplementation implements AccountService {
 
             AccountEntries sourceEntry = new AccountEntries();
             sourceEntry.setTransactionDate(transactionDate);
+            sourceEntry.setTransactionNumber(this.generateTransactionNumber());
             sourceEntry.setAmount(amount);
             sourceEntry.setSubjectAccountNumber(destinationAccountNumber);
             sourceEntry.setTransactionType(TransactionType.WITHDRAWAL);
@@ -210,6 +221,7 @@ public class AccountServiceImplementation implements AccountService {
 
             AccountEntries destinationEntry = new AccountEntries();
             destinationEntry.setTransactionDate(transactionDate);
+            destinationEntry.setTransactionNumber(this.generateTransactionNumber());
             destinationEntry.setAmount(amount);
             destinationEntry.setSubjectAccountNumber(sourceAccountNumber);
             destinationEntry.setTransactionType(TransactionType.DEPOSIT);
@@ -255,7 +267,6 @@ public class AccountServiceImplementation implements AccountService {
         }
         return stringBuilder.toString();
     }
-
 
 }
   
