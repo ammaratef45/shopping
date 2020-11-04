@@ -18,8 +18,6 @@ import org.springframework.stereotype.Service;
 
 import edu.miu.groupx.product.productservice.repository.ProductRepository;
 import edu.miu.groupx.product.productservice.service.ProductService;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -131,10 +129,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductsDTO getPendingProducts() {
+    public ProductsDTO getPendingProducts(long vendorId) {
         ProductsDTO productsDTO = new ProductsDTO();
         List<ProductDTO> productDTOList;
-        productDTOList = this.productRepository.getProductsByProductWarehouseStatus(ProductStatus.NEW)
+        productDTOList = this.productRepository.getProductsByProductWarehouseStatusAndUserId(ProductStatus.NEW, vendorId)
                 .stream()
                 .map(this::convertToProductDTO)
                 .collect(Collectors.toList());
@@ -143,10 +141,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductsDTO getApprovedProducts() {
+    public ProductsDTO getApprovedProducts(long vendorId) {
         ProductsDTO productsDTO = new ProductsDTO();
         List<ProductDTO> productDTOList;
-        productDTOList = this.productRepository.getProductsByProductWarehouseStatus(ProductStatus.APPROVED)
+        productDTOList = this.productRepository.getProductsByProductWarehouseStatusAndUserId(ProductStatus.APPROVED, vendorId)
                 .stream()
                 .map(this::convertToProductDTO)
                 .collect(Collectors.toList());
@@ -155,10 +153,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductsDTO getRejectedProducts() {
+    public ProductsDTO getRejectedProducts(long vendorId) {
         ProductsDTO productsDTO = new ProductsDTO();
         List<ProductDTO> productDTOList;
-        productDTOList = this.productRepository.getProductsByProductWarehouseStatus(ProductStatus.REJECTED)
+        productDTOList = this.productRepository.getProductsByProductWarehouseStatusAndUserId(ProductStatus.REJECTED, vendorId)
                 .stream()
                 .map(this::convertToProductDTO)
                 .collect(Collectors.toList());

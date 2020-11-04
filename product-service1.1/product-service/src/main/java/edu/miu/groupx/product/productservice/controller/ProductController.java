@@ -46,14 +46,14 @@ public class ProductController {
     @PutMapping("/products")
     public ProductDTO updateProduct(@RequestBody ProductDTO productDTO) {
         ProductDTO responseProductDTO = this.productService.updateProduct(productDTO);
-        if(responseProductDTO == null) throw new ResponseStatusException(
+        if (responseProductDTO == null) throw new ResponseStatusException(
                 HttpStatus.FORBIDDEN, "ownership check failed"
         );
         else return responseProductDTO;
     }
 
     @PostMapping("/products")
-    public ProductDTO createProduct( @RequestBody ProductDTO productDTO) {
+    public ProductDTO createProduct(@RequestBody ProductDTO productDTO) {
         System.out.println("here");
         return this.productService.createProduct(productDTO, productDTO.getVendorId());
     }
@@ -65,23 +65,23 @@ public class ProductController {
 
     @GetMapping("/products/search")
     public ProductsDTO searchProducts(@RequestParam("keyword") String keyword, @RequestParam("category") String category) {
-       System.out.println(keyword+" "+category);
+        System.out.println(keyword + " " + category);
         return productService.searchProducts(keyword, category);
     }
 
     @GetMapping("/products/pending")
-    public ProductsDTO getPendingProducts() {
-        return productService.getPendingProducts();
+    public ProductsDTO getPendingProducts(@RequestParam("vendorId") long vendorId) {
+        return productService.getPendingProducts(vendorId);
     }
 
     @GetMapping("/products/approved")
-    public ProductsDTO getApprovedProducts() {
-        return productService.getApprovedProducts();
+    public ProductsDTO getApprovedProducts(@RequestParam("vendorId") long vendorId) {
+        return productService.getApprovedProducts(vendorId);
     }
 
     @GetMapping("/products/rejected")
-    public ProductsDTO getRejectedProducts() {
-        return productService.getRejectedProducts();
+    public ProductsDTO getRejectedProducts(@RequestParam("vendorId") long vendorId) {
+        return productService.getRejectedProducts(vendorId);
     }
 
 }

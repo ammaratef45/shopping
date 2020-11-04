@@ -1,8 +1,7 @@
 package edu.miu.groupx.product.productservice.service;
 
-import java.util.List;
-
 import edu.miu.groupx.product.productservice.models.Category;
+import edu.miu.groupx.product.productservice.models.dtos.CategoryDTO;
 
 public interface CategoryService {
 	
@@ -10,7 +9,7 @@ public interface CategoryService {
 	
 	Category getByName(String name);
 	Category getById(long id); 
-	List<Category> getAll();
+	CategoryDTO getAll();
 	
 	Category productCatagoryUpdate(long id, Category category);
 	   	   

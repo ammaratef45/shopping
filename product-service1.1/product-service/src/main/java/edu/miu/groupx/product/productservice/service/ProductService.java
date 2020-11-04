@@ -13,9 +13,9 @@ public interface ProductService {
     ProductDTO createProduct(ProductDTO productDTO, long vendorId);
     void deleteProduct(long productId, long vendorId);
     ProductsDTO searchProducts(String keyword, String category);
-    ProductsDTO getPendingProducts();
-    ProductsDTO getApprovedProducts();
-    ProductsDTO getRejectedProducts();
+    ProductsDTO getPendingProducts(long vendorId);
+    ProductsDTO getApprovedProducts(long vendorId);
+    ProductsDTO getRejectedProducts(long vendorId);
     boolean checkProductOwnership(long productId, long vendorId);
 
 

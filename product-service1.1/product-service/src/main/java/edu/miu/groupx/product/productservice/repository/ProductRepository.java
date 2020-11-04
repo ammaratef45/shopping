@@ -25,7 +25,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE CONCAT(p.name, ' ', p.description) LIKE %?1% AND p.category.id = ?2")
     List<Product> searchProductsByKeywordAndCategory(@Param("keyword") String keyword, @Param("category") long category);
 
-    List<Product> getProductsByProductWarehouseStatus(ProductStatus productStatus);
+    List<Product> getProductsByProductWarehouseStatusAndUserId(ProductStatus productStatus, long vendorId);
 
     /*
      * @Query(value = "select p from Product p  where p.status = :status ")

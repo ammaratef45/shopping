@@ -23,31 +23,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9061c59-e661-4da7-ab30-41a83b57fd5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20180130.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/models/dtos/ImageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/models/dtos/CategoryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/product-service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/ProductApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/ProductApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/controller/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/controller/ProductImagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/controller/ProductImagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/repository/ProductImagesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/repository/ProductImagesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/ProductImagesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/ProductImagesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/impl/ProductImagesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/impl/ProductImagesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/utils/S3Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/edu/miu/groupx/product/productservice/utils/S3Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/ProductApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/ProductApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/controller/CategoryController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/controller/ProductImagesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/controller/ProductImagesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/models/Product$ProductBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/models/Product$ProductBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/models/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/ProductImagesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/ProductImagesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/repository/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/repository/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/CategoryService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/impl/ProductImagesServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/impl/ProductImagesServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/impl/CategoryServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/service/impl/ProductServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/utils/S3Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/edu/miu/groupx/product/productservice/utils/S3Utils.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,21 +82,19 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,10 +146,22 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1675" y="42" key="#Inspections/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604340137367" />
+    <state x="1529" y="0" key="#Project_Structure" timestamp="1604514284334">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="1529" y="0" key="#Project_Structure/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604514284334" />
+    <state x="1503" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604514197142">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="1503" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604514197142" />
     <state x="1854" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1604390880819">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1854" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604390880819" />
+    <state x="1676" y="52" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1604514078099">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="1676" y="52" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604514078099" />
     <state x="1797" y="232" width="549" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604390483792">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
@@ -165,38 +170,38 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1829" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604389545944" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1604431803517">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1604529157981">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604431803517" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1604431803517">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604529157981" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1604529157980">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604431803517" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1604431803517">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604529157980" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1604529157980">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604431803517" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1604431803517">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604529157980" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1604529157981">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604431803517" />
-    <state width="1323" height="179" key="GridCell.Tab.1.bottom" timestamp="1604431803518">
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604529157981" />
+    <state width="1323" height="179" key="GridCell.Tab.1.bottom" timestamp="1604529157981">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604431803518" />
-    <state width="1323" height="179" key="GridCell.Tab.1.center" timestamp="1604431803517">
+    <state width="1323" height="179" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604529157981" />
+    <state width="1323" height="179" key="GridCell.Tab.1.center" timestamp="1604529157981">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604431803517" />
-    <state width="1323" height="179" key="GridCell.Tab.1.left" timestamp="1604431803517">
+    <state width="1323" height="179" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604529157981" />
+    <state width="1323" height="179" key="GridCell.Tab.1.left" timestamp="1604529157981">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604431803517" />
-    <state width="1323" height="179" key="GridCell.Tab.1.right" timestamp="1604431803518">
+    <state width="1323" height="179" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604529157981" />
+    <state width="1323" height="179" key="GridCell.Tab.1.right" timestamp="1604529157981">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604431803518" />
+    <state width="1323" height="179" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604529157981" />
     <state x="1550" y="0" key="SettingsEditor" timestamp="1604356519495">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
@@ -217,10 +222,10 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1431" y="24" key="new project wizard/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604308480814" />
-    <state x="1825" y="122" key="refactoring.ChangeSignatureDialog" timestamp="1604390970151">
+    <state x="1825" y="122" key="refactoring.ChangeSignatureDialog" timestamp="1604526141925">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1825" y="122" key="refactoring.ChangeSignatureDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604390970151" />
+    <state x="1825" y="122" key="refactoring.ChangeSignatureDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1604526141925" />
     <state x="1705" y="162" key="run.anything.popup" timestamp="1604338961774">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
@@ -235,5 +240,8 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/product_service1_1$ProductApplication.ic" NAME="ProductApplication Coverage Results" MODIFIED="1604529157927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
