@@ -1,10 +1,8 @@
-package edu.miu.groupx.security.controller;
-
+package edu.miu.groupx.security.securityservice.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.miu.groupx.security.model.UserAdmin;
-import edu.miu.groupx.security.service.AdminService;
+import edu.miu.groupx.security.securityservice.model.UserAdmin;
+import edu.miu.groupx.security.securityservice.service.AdminService;
 
 
 
@@ -26,44 +24,30 @@ public class AdminController
 	private AdminService adminSer;	
 	
 	
-	// Display the Form for Creating New User
-	@GetMapping("/new")
-	public String displayEmployeeForm(Model model)
-	{
-		UserAdmin user = new UserAdmin();
-		model.addAttribute("user", user);
-		
-		return "users/new-user";
-	}
-	
 	// Add New User Info
 	@PostMapping("/add")
-	public String getAdd(@RequestBody UserAdmin user)
+	public void  getAdd(@RequestBody UserAdmin user)
 	{	
 		adminSer.addUser(user);
-		
-		return "redirect:/admin";
 	}
 	
 	// Get the whole User List
 	@GetMapping("/display")
-	public List<User> displayUserList()
+	public List<UserAdmin> displayUserList()
 	{
 		return adminSer.findAll();
 	}
 	
 	// Delete the specific User
 	@PostMapping("/delete/{id}")
-	public String getDelete(@PathVariable("id") String id)
+	public void  getDelete(@PathVariable("id") Long id)
 	{
 		adminSer.delete(id);
-		
-		return "redirect:/admin";
 	}
 	
 	// Edit the specific User by ID
 	@PutMapping("/edit/{id}")
-	public String updateUserById(@RequestBody UserAdmin user, @PathVariable("id") String id)
+	public void  updateUserById(@RequestBody UserAdmin user, @PathVariable("id") Long id)
 	{
 		UserAdmin tmpUser = adminSer.getUser(id);
 		
@@ -73,34 +57,31 @@ public class AdminController
 		tmpUser.setUsername(user.getUsername());
 		tmpUser.setPassword(user.getPassword());
 		tmpUser.setAddress(user.getAddress());
-		tmpUser.setCardno(user.getCardno());
 		tmpUser.setEnabled(user.getEnabled());
 		tmpUser.setRole(user.getRole());
+		tmpUser.setUserStatus(user.getUserStatus());
 		
 		adminSer.addUser(tmpUser);
-		
-		return "redirect:/admin";
 	}
 	
 	
 	// Check User's enabled and Approve or Reject Vendor's request
 	@PostMapping("/vendor/request/{id}")
-	public String getApprovalForVendor(@PathVariable("id") String id)
+	public void  getApprovalForVendor(@PathVariable("id") Long id)
 	{
 		if(adminSer.getApprovalForVendor(id))
 		{
-			// Approve
-			adminSer.updateStatusProduct(id, "Approved");
-			
-			return "redirect:/admin";
+			// Approve Product
+			adminSer.updateStatusProduct(id, "APPROVED");
+			// Update User Approve status
+			adminSer.approveUser(adminSer.getUser(id));
 		}// if
 		else
 		{
-			// Reject
-			// Change Status to Reject
-			adminSer.updateStatusProduct(id, "Reject");
-			
-			return "redirect:/admin";
+			// Reject Product
+			adminSer.updateStatusProduct(id, "REJECTED");
+			// Update User Reject status
+			adminSer.rejectUser(adminSer.getUser(id));
 		}// else
 	}
 	

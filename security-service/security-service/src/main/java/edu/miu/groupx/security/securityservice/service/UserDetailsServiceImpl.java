@@ -1,8 +1,10 @@
 package edu.miu.groupx.security.securityservice.service;
 
 import edu.miu.groupx.security.securityservice.model.AuthUserDetails;
+
 import edu.miu.groupx.security.securityservice.model.User;
 import edu.miu.groupx.security.securityservice.repository.UserDetailsRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
 import org.springframework.security.core.userdetails.UserDetails;

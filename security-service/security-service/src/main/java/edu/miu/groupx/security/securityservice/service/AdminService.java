@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.miu.groupx.security.dao.AdminRepository;
 import edu.miu.groupx.security.model.UserAdmin;
+import edu.miu.groupx.security.model.UserStatus;
 
 @Service
 @Transactional
@@ -22,25 +24,26 @@ public class AdminService
 	
 	public void addUser(UserAdmin user)
 	{
+		user.setUserStatus(UserStatus.PENDING);
 		adminRepo.save(user);
 	}
 	
-	public User getUser(String id)
+	public UserAdmin getUser(Long id)
 	{
 		return adminRepo.findById(id).get();
 	}
 	
-	public void delete(String id)
+	public void delete(Long id)
 	{
 		adminRepo.deleteById(id);
 	}
 	
-	public void updateUserById(UserAdmin user, String id)
+	public void updateUserById(UserAdmin user, Long id)
 	{
 		adminRepo.updateUserById(user, id);
 	}
 	
-	public Boolean getApprovalForVendor(String id)
+	public Boolean getApprovalForVendor(Long id)
 	{
 		if(adminRepo.getApprovalForVendor(id) >= 1)
 		{
@@ -50,12 +53,27 @@ public class AdminService
 		return false;
 	}
 	
-	public void updateStatusProduct(String id, String status)
+	public void updateStatusProduct(Long id, String status)
 	{
 		adminRepo.updateStatusProduct(id, status);
 	}
+	
+	public UserAdmin approveUser(UserAdmin user) 
+	{
+		UserAdmin fetchedUser= adminRepo.findById(user.getId()).get();
+		fetchedUser.setUserStatus(UserStatus.APPROVED);
+		adminRepo.save(fetchedUser);
+		
+		return fetchedUser;
+	}
 
-	
-	
+	public UserAdmin  rejectUser(UserAdmin user) 
+	{
+		UserAdmin fetchedUser= adminRepo.findById(user.getId()).get();
+		fetchedUser.setUserStatus(UserStatus.REJECTED);
+		adminRepo.save(fetchedUser);
+		
+		return fetchedUser; 
+	}
 	
 }
