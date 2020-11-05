@@ -1,15 +1,7 @@
 package edu.miu.groupx.product.productservice.controller;
 
-import java.util.List;
-
-
-import edu.miu.groupx.product.productservice.models.ProductList;
-import edu.miu.groupx.product.productservice.models.dtos.ProductDTO;
-import edu.miu.groupx.product.productservice.models.dtos.ProductsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import edu.miu.groupx.product.productservice.models.Product;
-import edu.miu.groupx.product.productservice.repository.ProductRepository;
-import edu.miu.groupx.product.productservice.service.ProductService;
 import org.springframework.web.server.ResponseStatusException;
+
+import edu.miu.groupx.product.productservice.models.dtos.ProductDTO;
+import edu.miu.groupx.product.productservice.models.dtos.ProductsDTO;
+import edu.miu.groupx.product.productservice.service.ProductService;
 
 @RestController
 @RequestMapping("/api")
@@ -34,7 +26,7 @@ public class ProductController {
 
 
     @GetMapping("/products/{id}")
-    ProductDTO getProduct(@PathVariable long id) {
+    public ProductDTO getProduct(@PathVariable long id) {
         return productService.getProductById(id);
     }
 

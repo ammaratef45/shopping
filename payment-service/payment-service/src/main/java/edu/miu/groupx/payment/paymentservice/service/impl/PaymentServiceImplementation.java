@@ -105,8 +105,13 @@ public class PaymentServiceImplementation implements PaymentService {
     @Override
     public String getCardVerifierUrl(Card card) {
         String cardNumber = card.getCardNumber();
+        Integer startDigit = null;
+        try {
+            startDigit = Integer.parseInt(cardNumber.substring(0, 1));
+        } catch (NumberFormatException e) {
+            return "";
+        }
 
-        Integer startDigit = Integer.parseInt(cardNumber.substring(0, 1));
         if (startDigit == CardType.MASTERCARD.getStartDigit()) {
             return CardCaller.MASTERCARD_URI.getCardParameter();
 
@@ -157,6 +162,18 @@ public class PaymentServiceImplementation implements PaymentService {
         return response;
     }
 
+    /**
+     * calls the userDetail service and gets the vendor account number
+     * for the given userId
+     * @param url  the user detail service url
+     * @param vendorId
+     * @return the account number for a given user Id
+     */
+    public String userServiceCaller(String url, Long vendorId) {
+        ResponseEntity<String> accountNumber = restTemplate.getForEntity(url+"/"+vendorId, String.class);
+        return accountNumber.getBody();
+    }
+
     public Payment createPaymentFromOrder(Order newOrder) {
         Payment newPayment = new Payment();
         newPayment.setOrderNumber(newOrder.getOrderNumber());
@@ -164,9 +181,11 @@ public class PaymentServiceImplementation implements PaymentService {
         newPayment.setPaymentDate(LocalDate.now());
         newPayment.setAmount(newOrder.getAmount());
         newPayment.setRecipientAccountNumber(newOrder.getRecipientAccountNumber());
+        newPayment.setTransactionId(this.generateTransactionId());
 
         return newPayment;
     }
+
 
 
 }

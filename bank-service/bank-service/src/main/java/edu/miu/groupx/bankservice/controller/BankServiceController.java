@@ -82,6 +82,7 @@ public class BankServiceController {
     public ResponseEntity<BankResponseMessages> deposit(@RequestBody Transaction transaction) {
         String accountNumber = transaction.getAccountNumber();
         BigDecimal amount = transaction.getAmount();
+        System.out.println("got called for deposite "+accountNumber);
         return new ResponseEntity<BankResponseMessages>(accountService.deposit(amount, accountNumber), HttpStatus.CREATED);
 
     }

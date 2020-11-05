@@ -15,6 +15,38 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class CategoryServiceImpl implements CategoryService {
+
+	/*
+	 * 
+	 * 
+	 * @Autowired CategoryRepository categoryRepository;
+	 * 
+	 * @Override public Category save(Category category) { Category
+	 * categorycheck=getByName(category.getName()); if(categorycheck!=null) return
+	 * null; return categoryRepository.save(category); }
+	 * 
+	 * @Override public Category getByName(String name) {
+	 * 
+	 * return categoryRepository.findByName(name); }
+	 * 
+	 * @Override public Category getById(long id) {
+	 * 
+	 * return categoryRepository.findById(id).get(); }
+	 * 
+	 * @Override public List<Category> getAllcategory() {
+	 * 
+	 * return categoryRepository.findAll(); }
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+
     @Autowired
     CategoryRepository categoryRepository;
 
@@ -68,5 +100,6 @@ public class CategoryServiceImpl implements CategoryService {
         categoryRepository.delete(category);
 
     }
+
 
 }

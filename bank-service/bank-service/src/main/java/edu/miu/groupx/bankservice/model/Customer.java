@@ -1,5 +1,6 @@
 package edu.miu.groupx.bankservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
@@ -17,9 +18,10 @@ public class Customer {
     private String dob_month;
     private String dob_year;
     private String SSN;
+    @JsonIgnore
     @OneToOne(mappedBy = "accountHolder", cascade = CascadeType.ALL)
     private CheckingAccount account;
-   @OneToOne
+    @OneToOne
     private  Address address;
 
 
