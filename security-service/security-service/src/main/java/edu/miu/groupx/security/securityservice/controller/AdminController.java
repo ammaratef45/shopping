@@ -3,6 +3,7 @@ package edu.miu.groupx.security.securityservice.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,8 +39,15 @@ public class AdminController
 		return adminSer.findAll();
 	}
 	
+	// Get the specific User
+	@GetMapping("/get/{id}")
+	public UserAdmin getUser(@PathVariable("id") Long id)
+	{
+		return adminSer.getUser(id);
+	}
+	
 	// Delete the specific User
-	@PostMapping("/delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	public void  getDelete(@PathVariable("id") Long id)
 	{
 		adminSer.delete(id);
@@ -66,7 +74,7 @@ public class AdminController
 	
 	
 	// Check User's enabled and Approve or Reject Vendor's request
-	@PostMapping("/vendor/request/{id}")
+	@GetMapping("/vendor/request/{id}")
 	public void  getApprovalForVendor(@PathVariable("id") Long id)
 	{
 		if(adminSer.getApprovalForVendor(id))
