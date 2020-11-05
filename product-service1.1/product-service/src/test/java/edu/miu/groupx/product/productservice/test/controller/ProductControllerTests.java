@@ -116,5 +116,49 @@ public class ProductControllerTests {
 	
 
 	
+	
+	@Test
+	public void updateProduct_returnUpdatedProduct() {
+		productId = 1L;
+		ProductDTO	newProduct = ProductDTO.builder()
+				.id(1L)
+				.name("New productName")
+				.price(2000)
+				.description("descriptionString")
+				.imageUrl(Collections.singletonList("imageUrl"))
+				.category("stringCategory")
+				.quantity(5)
+				.vendorId(2L)
+				.build();
+		
+		
+		product = ProductDTO.builder()
+				.id(productId)
+				.name("productName")
+				.price(1000)
+				.description("descriptionString")
+				.imageUrl(Collections.singletonList("imageUrl"))
+				.category("stringCategory")
+				.quantity(5)
+				.vendorId(2L)
+				.build();
+		
+		if(product !=null && product.getVendorId()==newProduct.getVendorId()) {
+			product.setName(newProduct.getName());
+            product.setCategory(newProduct.getCategory());
+            product.setDescription(newProduct.getDescription());
+            product.setQuantity(newProduct.getQuantity());
+            product.setPrice(newProduct.getPrice());
+		}
+		
+		when(productServiceMock.updateProduct(newProduct)).thenReturn(product);
+		
+		ProductDTO actual = subject.updateProduct(newProduct);
+		
+		verify(productServiceMock).updateProduct(newProduct);
+		assertThat(actual.getId()).isEqualTo(product.getId());
+		
+	}
+	
 
 }
