@@ -1,6 +1,7 @@
 package edu.miu.groupx.order.orderservice.controller;
 
 
+import edu.miu.groupx.order.orderservice.domain.DTOs.OrdersDTO;
 import edu.miu.groupx.order.orderservice.domain.OrderDetails;
 import edu.miu.groupx.order.orderservice.domain.Orders;
 import edu.miu.groupx.order.orderservice.service.OrderService;
@@ -23,7 +24,7 @@ public class OrderController {
     }
 
     @GetMapping("/user/{userId}")
-    public List<Orders> getOrderByUserId(@PathVariable("userId") long userId){
+    public OrdersDTO getOrderByUserId(@PathVariable("userId") long userId){
         return orderService.getByUserId(userId);
     }
 

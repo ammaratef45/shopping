@@ -4,9 +4,11 @@ package edu.miu.groupx.order.orderservice.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 
 import javax.persistence.*;
 
+@Builder
 @Entity
 @JsonIgnoreProperties("order")
 public class OrderDetails {
@@ -21,6 +23,7 @@ public class OrderDetails {
 	@JoinColumn(name = "order_id")
 	private Orders order;
 	private Long productId;
+	private String productName;
 
 	public OrderDetails(Double quantity, double itemPrice, Long productId){
 		this.quantity = quantity;
@@ -31,6 +34,16 @@ public class OrderDetails {
 
 	public OrderDetails(){
 
+	}
+
+	public OrderDetails(Long orderDetailId, Double quantity, Double itemPrice, Double subTotal, Orders order, Long productId, String productName) {
+		this.orderDetailId = orderDetailId;
+		this.quantity = quantity;
+		this.itemPrice = itemPrice;
+		this.subTotal = subTotal;
+		this.order = order;
+		this.productId = productId;
+		this.productName = productName;
 	}
 
 	public Long getOrderDetailId() {
@@ -79,6 +92,14 @@ public class OrderDetails {
 
 	public void setProductId(Long productId) {
 		this.productId = productId;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	@Override
