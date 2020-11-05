@@ -15,8 +15,9 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class CategoryServiceImpl implements CategoryService {
+
 	/*
-	 * <<<<<<< HEAD
+	 * 
 	 * 
 	 * @Autowired CategoryRepository categoryRepository;
 	 * 
@@ -43,8 +44,9 @@ public class CategoryServiceImpl implements CategoryService {
 	 * 
 	 * 
 	 * 
-	 * =======
+	 * 
 	 */
+
     @Autowired
     CategoryRepository categoryRepository;
 
@@ -98,6 +100,6 @@ public class CategoryServiceImpl implements CategoryService {
         categoryRepository.delete(category);
 
     }
-//>>>>>>> edd722d2fece2ddf45ad10e5d6375a0780b51ce5
+
 
 }

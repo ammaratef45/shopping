@@ -43,7 +43,7 @@ public class Product implements Serializable {
 
     @NotNull
     private long userId;
-    @JsonIgnore
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
 
