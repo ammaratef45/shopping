@@ -1,9 +1,10 @@
-package edu.miu.groupx.security.model;
+package edu.miu.groupx.security.securityservice.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -12,26 +13,18 @@ public class Product
 {
 	
 	@Id
-	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID")
 	private String id;
 	
-	@Column(name = "name")
+	@Column(name = "NAME")
 	private String name;
 	
-	@Column(name = "description")
-	private String description;
-	
-	@Column(name = "price")
-	private Integer price;
-	
-	@JoinColumn(name = "userid")
+	@Column(name = "USERID")
 	private String userid;
 	
-	@JoinColumn(name = "status")
+	@Column(name = "STATUS")
 	private String status;
-	
-	@JoinColumn(name = "category")
-	private String category;
 	
 	
 	public Product() {}
@@ -57,26 +50,6 @@ public class Product
 	}
 
 
-	public String getDescription() {
-		return description;
-	}
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
-	public Integer getPrice() {
-		return price;
-	}
-
-
-	public void setPrice(Integer price) {
-		this.price = price;
-	}
-
-
 	public String getUserid() {
 		return userid;
 	}
@@ -97,14 +70,7 @@ public class Product
 	}
 
 
-	public String getCategory() {
-		return category;
-	}
-
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
+	
 	
 	
 }
