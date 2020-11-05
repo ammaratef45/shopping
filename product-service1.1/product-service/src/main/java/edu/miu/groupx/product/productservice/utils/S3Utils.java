@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -71,6 +72,8 @@ public class S3Utils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        JSONObject response = new JSONObject();
+        response.put("url",fileUrl);
         return fileUrl;
     }
 

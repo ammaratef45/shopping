@@ -3,15 +3,13 @@ package edu.miu.groupx.product.productservice.models;
 import java.io.Serializable;
 
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.Entity;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.*;
+import org.hibernate.annotations.Type;
 import org.springframework.stereotype.Component;
 
 import com.sun.istack.NotNull;
@@ -26,10 +24,8 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
-    @Version
-    private Integer version;
 
     @Column(unique = true)
     private String name;
@@ -40,16 +36,16 @@ public class Product implements Serializable {
     @NotNull
     private double price;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval= true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinColumn(name = "product_id")
-    private List<ProductImages> pictures = new ArrayList<>() ;
+    private List<ProductImages> pictures = new ArrayList<>();
 
 
     @NotNull
     private long userId;
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
-    private Category category ;
+    private Category category;
 
     @OneToOne(cascade = CascadeType.ALL)
     private ProductWarehouse productWarehouse;
@@ -57,9 +53,9 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(Long id, Integer version, String name, String description, double price, List<ProductImages> pictures, long userId, Category category, ProductWarehouse productWarehouse) {
+    public Product(Long id, String name, String description, double price, List<ProductImages> pictures, long userId, Category category, ProductWarehouse productWarehouse) {
         this.id = id;
-        this.version = version;
+
         this.name = name;
         this.description = description;
         this.price = price;
@@ -69,4 +65,7 @@ public class Product implements Serializable {
         this.productWarehouse = productWarehouse;
     }
 
+    public void addImage(ProductImages productImages) {
+        this.pictures.add(productImages);
+    }
 }

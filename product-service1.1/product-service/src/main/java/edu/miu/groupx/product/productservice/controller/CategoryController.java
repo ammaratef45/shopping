@@ -2,6 +2,7 @@ package edu.miu.groupx.product.productservice.controller;
 
 import java.util.List;
 
+import edu.miu.groupx.product.productservice.models.dtos.CategoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +27,8 @@ public class CategoryController {
 	@Autowired
 	CategoryService categoryService;
 
-	@GetMapping("/productCategories")
-	public List<Category> getCategories() {
-
+	@GetMapping("/categories")
+	public CategoryDTO getCategories() {
 		return categoryService.getAll();
 	}
 

@@ -7,14 +7,17 @@ public interface ProductService {
 
     ProductDTO getProductById(long id);
     ProductsDTO getAllProducts();
+
+
     ProductDTO updateProduct(ProductDTO productDTO);
-    ProductDTO createProduct(ProductDTO productDTO);
+    ProductDTO createProduct(ProductDTO productDTO, long vendorId);
     void deleteProduct(long productId, long vendorId);
     ProductsDTO searchProducts(String keyword, String category);
-    ProductsDTO getPendingProducts();
-    ProductsDTO getApprovedProducts();
-    ProductsDTO getRejectedProducts();
+    ProductsDTO getPendingProducts(long vendorId);
+    ProductsDTO getApprovedProducts(long vendorId);
+    ProductsDTO getRejectedProducts(long vendorId);
     boolean checkProductOwnership(long productId, long vendorId);
 
 
+    void addProductImage(long productId, String url);
 }
