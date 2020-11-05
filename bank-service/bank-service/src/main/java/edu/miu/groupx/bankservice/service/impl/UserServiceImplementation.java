@@ -35,7 +35,7 @@ public class UserServiceImplementation implements CustomerService {
 
         String holderName = newCustomer.getFirstName() + " " + newCustomer.getLastName();
         CheckingAccount account = accountService.createCheckingAccount(holderName, cardType);
-
+        account.setAccountHolder(newCustomer);
         newCustomer.setAccount(account);
 
         return customerRepository.save(newCustomer);
@@ -60,4 +60,5 @@ public class UserServiceImplementation implements CustomerService {
     public List<Customer> getAllCustomer() {
         return customerRepository.findAll();
     }
+
 }
